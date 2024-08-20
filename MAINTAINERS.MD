@@ -1,6 +1,6 @@
 | Org                    | Name                                      | GitHub Username        |
 | -----------------------| ------------------------------------------| -----------------------|
 | Huawei | Shuting Qing | ShutingQing |
-| MTN | Karishma Tayal |
-| MTN | Sanjay Chaurasia |
+| MTN | Karishma Tayal | KarishmaTayal |
+| MTN | Sanjay Chaurasia | sanjayoct14 |
 | Orange | Ludovic Robert | bigludo7 |
