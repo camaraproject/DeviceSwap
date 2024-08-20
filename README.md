@@ -4,7 +4,7 @@
 <a href="https://github.com/camaraproject/DeviceSwap/graphs/contributors" title="Contributors"><img src="https://img.shields.io/github/contributors/camaraproject/DeviceSwap?style=plastic"></a>
 <a href="https://github.com/camaraproject/DeviceSwap" title="Repo Size"><img src="https://img.shields.io/github/repo-size/camaraproject/DeviceSwap?style=plastic"></a>
 <a href="https://github.com/camaraproject/DeviceSwap/blob/main/LICENSE" title="License"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=plastic"></a>
-
+<a href="https://github.com/camaraproject/DeviceSwap/releases/latest" title="Latest Release"><img src="https://img.shields.io/github/release/camaraproject/DeviceSwap?style=plastic"></a>
 # DeviceSwap
 Repository to describe, develop, document and test the Device Swap API family
 
@@ -17,11 +17,12 @@ Repository to describe, develop, document and test the Device Swap API family
 * Started: October 2023
 * Location: virtually  
 
-## Meetings
-* Meetings are held virtually
-* Schedule: tbd
-* Meeting link: tbd
-
-## Contributorship and mailing list
-* To subscribe / unsubscribe to the mailing list of this Sub Project and thus be / resign as Contributor please visit <https://lists.camaraproject.org/g/sp-dsw>.
-* A message to all Contributors of this Sub Project can be sent using <sp-dsw@lists.camaraproject.org>.
+## Contributing
+* Meetings are held virtually <!-- for new API families request a meeting link from the LF admin team or replace the information with the existing meeting information (of the API family) -->
+    * Schedule: Bi-Weekly, Tuesday, 11:00 CEST (09:00 UTC during European DST)
+    * [Registration / Join](https://zoom-lfx.platform.linuxfoundation.org/meeting/92029015046?password=e6f24cfd-3c64-4c69-880b-de88c6c327c2)
+    * Minutes: Access [meeting minutes](https://wiki.camaraproject.org/x/twKeAQ)
+* Mailing List
+    <!-- Note: the $sub-project-mailinglistname$ is either already existing or will be created by the CAMARA Admin Team  -->
+    * Subscribe / Unsubscribe to the mailing list of this Sub Project <https://lists.camaraproject.org/g/sp-dsw>.
+    * A message to the community of this Sub Project can be sent using <sp-dsw@lists.camaraproject.org>.
