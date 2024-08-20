@@ -19,7 +19,7 @@ Repository to describe, develop, document and test the Device Swap API family
 
 ## Contributing
 * Meetings are held virtually <!-- for new API families request a meeting link from the LF admin team or replace the information with the existing meeting information (of the API family) -->
-    * Schedule: Bi-Weekly at 11:00 CEST / 02:00 PT
+    * Schedule: Bi-Weekly, Tuesday, 11:00 CEST (09:00 UTC during European DST)
     * [Registration / Join](https://zoom-lfx.platform.linuxfoundation.org/meeting/92029015046?password=e6f24cfd-3c64-4c69-880b-de88c6c327c2)
     * Minutes: Access [meeting minutes](https://wiki.camaraproject.org/x/twKeAQ)
 * Mailing List
