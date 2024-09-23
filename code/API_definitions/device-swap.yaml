@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Device Swap
   description: |
-      This API allows to check the last time that the phone (device), where a mobile number (MSISDN) is installed, has changed.
+      This API allows to check the last time that the phone (device) - phone number association has changed
 
       # Introduction
 
