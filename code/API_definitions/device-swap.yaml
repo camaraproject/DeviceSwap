@@ -57,7 +57,7 @@ info:
 
       It is important to remark that in cases where personal user data is processed by the API, and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of 3-legged access tokens becomes mandatory. This measure ensures that the API remains in strict compliance with user privacy preferences and regulatory obligations, upholding the principles of transparency and user-centric data control.
 
-  license:
+license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: wip
@@ -113,8 +113,8 @@ paths:
           $ref: "#/components/responses/Generic403"
         "404":
           $ref: "#/components/responses/Generic404"
-        "429":
-          $ref: "#/components/responses/Generic429"
+        "422":
+          $ref: "#/components/responses/Generic422"
         "500":
           $ref: "#/components/responses/Generic500"
         "503":
@@ -160,8 +160,8 @@ paths:
           $ref: "#/components/responses/Generic403"
         "404":
           $ref: "#/components/responses/Generic404"
-        "429":
-          $ref: "#/components/responses/Generic429"
+        "422":
+          $ref: "#/components/responses/Generic422"
         "500":
           $ref: "#/components/responses/Generic500"
         "503":
@@ -342,8 +342,12 @@ components:
                 status: 404
                 code: NOT_FOUND
                 message: The specified resource is not found.
-    Generic429:
-      description: Too Many Requests
+    Generic422:
+      description: |-
+        Unprocessable Content
+
+        - Service not supported for this phoneNumber. (`"code": "NOT_SUPPORTED","message": "Service not supported for this phoneNumber"`)
+        - The phone number is not included in the request and the phone number information cannot be derived from the 3-legged access token. (`"code": "UNIDENTIFIABLE_PHONE_NUMBER","message": "The phone number is not included in the request and the phone number information cannot be derived from the 3-legged access token"`)
       headers:
         x-correlator:
           $ref: "#/components/headers/x-correlator"
@@ -352,12 +356,18 @@ components:
           schema:
             $ref: "#/components/schemas/ErrorInfo"
           examples:
-            GENERIC_429_TOO_MANY_REQUESTS:
-              description: API Server request limit is overpassed
+            GENERIC_422_NOT_SUPPORTED:
+              description: Not Supported
               value:
-                status: 429
-                code: TOO_MANY_REQUESTS
-                message: Either out of resource quota or reaching rate limiting.
+                status: 422
+                code: NOT_SUPPORTED
+                message: Service not supported for this phoneNumber
+            UNIDENTIFIABLE_PHONE_NUMBER:
+              description: The phone number is not included in the request and the phone number information cannot be derived from the 3-legged access token
+              value:
+                status: 422
+                code: UNIDENTIFIABLE_PHONE_NUMBER
+                message: The phone number cannot be identified
     Generic500:
       description: Server error
       headers:
