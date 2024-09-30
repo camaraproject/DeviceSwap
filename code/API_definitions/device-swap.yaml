@@ -27,7 +27,7 @@ info:
 
         - POST retrieve-date: Provides timestamp of latest device swap for a given phone number. If no device swap has been performed, the API will return the first phone number usage in the device (the timestamp of the first time that the phone number was connected to the network, it is, the first time that the SIM is installed in the device) by default, unless this is not possible due to local regulations preventing the safekeeping of the information for longer than the stated period. If this is the case, a `null` value will be returned.
 
-        - POST check: Checks if device swap has been performed during a past period (defined in the request with 'maxAge' attribute) for a given phone number, the API will return boolean response (true/false), indicating that the device has been swapped or not in the specified period
+        - POST check: Checks if device swap has been performed during a past period (defined in the request with `maxAge` attribute) for a given phone number, the API will return boolean response (true/false), indicating that the device has been swapped or not in the specified period
 
         So, when consuming this operation, the following scenarios will exist:
 
@@ -39,15 +39,15 @@ info:
 
         The API is consumed in 2-legged:
 
-        - If no `phoneNumber` is provided in the body, the API will respond with `HTTP 400 Invalid Argument`.
+        - If no `phoneNumber` is provided in the body, the API will respond with `HTTP 400 INVALID_ARGUMENT`.
         - If the `phoneNumber` is provided in the body, the API will return in the response the information of the `phoneNumber` provided in the body.
 
       # Resources and Operations overview
 
-      The API provides the following endpoint:
+      The API provides the following endpoints:
       
       - An operation to retrieve last date in which the device of the end-user was swapped. 
-      - An operation to check if the SIM of the end-used has been installed in a different device during a past period
+      - An operation to check if the SIM of the end-user has been installed in a different device during a past period
 
       ## Authorization and authentication
 
@@ -72,7 +72,7 @@ tags:
   - name: Retrieve Device Swap Date
     description: Receive the last date in which the device of the end-user was swapped
   - name: Check Device Swap
-    description: Validate if the SIM of the end-used has been installed in a different device during a past period
+    description: Validate if the SIM of the end-user has been installed in a different device during a past period
 paths: 
   /retrieve-date:
     post:
@@ -219,8 +219,7 @@ components:
     PhoneNumber:
       type: string
       pattern: '^\+[1-9][0-9]{4,14}$'
-      example: '+346661113334'
-      x-fp-identifier: phone_number
+      example: '+34666111333'
       description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
     CheckDeviceSwapInfo:
       type: object
@@ -248,24 +247,27 @@ components:
           description: Detailed error description   
   responses:
     Generic400:
-      description: Problem with the client request
+      description: Bad Request
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: "#/components/headers/x-correlator"
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorInfo'
-          example:
-            status: 400
-            code: INVALID_ARGUMENT
-            message: Client specified an invalid argument, request body or query param
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_400_INVALID_ARGUMENT:
+              description: Invalid Argument. Generic Syntax Exception
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: Client specified an invalid argument, request body or query param.
     Generic400Check:
       description: |-
         Bad Request 
         
         In addition to regular scenario of INVALID_ARGUMENT, other scenarios may exist:
-        - Client specified an invalid range. (`"code": "OUT_OF_RANGE","message": "Provided idDocument is not consistent with the phone number."`)
+        - Out of Range. Specific Syntax Exception used when a given field has a pre-defined range or a invalid filter criteria combination is requested ("code": "OUT_OF_RANGE","message": "Client specified an invalid range.")
       headers:
         x-correlator:
           $ref: "#/components/headers/x-correlator"
@@ -287,18 +289,21 @@ components:
                 code: OUT_OF_RANGE
                 message: Client specified an invalid range.
     Generic401:
-      description: Authentication problem with the client request
+      description: Unauthorized
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: "#/components/headers/x-correlator"
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorInfo'
-          example:
-            status: 401
-            code: UNAUTHENTICATED
-            message: Request not authenticated due to missing, invalid, or expired credentials
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_401_UNAUTHENTICATED:
+              description: Request cannot be authenticated
+              value:
+                status: 401
+                code: UNAUTHENTICATED
+                message: Request not authenticated due to missing, invalid, or expired credentials.
     Generic403:
       description: |-
         Forbidden
@@ -369,41 +374,50 @@ components:
                 code: UNIDENTIFIABLE_PHONE_NUMBER
                 message: The phone number cannot be identified
     Generic500:
-      description: Server error
+      description: Internal Server Error
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: "#/components/headers/x-correlator"
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorInfo'
-          example:
-            status: 500
-            code: INTERNAL
-            message: Server error
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_500_INTERNAL:
+              description: Problem in Server side. Regular Server Exception
+              value:
+                status: 500
+                code: INTERNAL
+                message: Unknown server error. Typically a server bug.
     Generic503:
-      description: Service unavailable. Typically the server is down
+      description: Service Unavailable
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: "#/components/headers/x-correlator"
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorInfo'
-          example:
-            status: 503
-            code: UNAVAILABLE
-            message: Service unavailable
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_503_UNAVAILABLE:
+              description: Service is not available. Temporary situation usually related to maintenance process in the server side
+              value:
+                status: 503
+                code: UNAVAILABLE
+                message: Service Unavailable.
     Generic504:
-      description: Request time exceeded. If it happens repeatedly, consider reducing the request complexity
+      description: Gateway Timeout
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: "#/components/headers/x-correlator"
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorInfo'
-          example:
-            status: 504
-            code: TIMEOUT
-            message: Request timeout exceeded. Try later
+            $ref: "#/components/schemas/ErrorInfo"
+          examples:
+            GENERIC_504_TIMEOUT:
+              description: API Server Timeout
+              value:
+                status: 504
+                code: TIMEOUT
+                message: Request timeout exceeded.
