@@ -17,7 +17,7 @@ info:
 
       # Relevant terms and definitions
 
-      **Device swap**: A Device Swap is a process in which a user's mobile phone number (MSISDN) is associated with a new device (IMEI). This typically occurs when the user switches to a new mobile device, either by upgrading, replacing a lost or damaged device, or other similar reasons. A Device Swap also happens during actions like activating a new device associated with the same phone number, also known as multiSIM. New Device activation is considered as a Device Swap as well, as the phone number is associated with a device it was not associated before.
+      **Device swap: A Device Swap is a process in which the association between a user's mobile phone number (MSISDN) and a device (IMEI) is created for the first time or changes for any reasons.
 
       # API Functionality
 
