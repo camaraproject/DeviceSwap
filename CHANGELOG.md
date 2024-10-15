@@ -31,6 +31,8 @@ The API definition(s) are based on
 * Clean error and description by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/18
 * Updated device-swap description by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/17
 * Updated API actions descriptions by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/21
+* Create Gherkin tests for Device Swap API by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/23
+* Include User stories for Device Swap by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/24
 
 ### Changed
 N/A
