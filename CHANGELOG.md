@@ -27,16 +27,10 @@ The API definition(s) are based on
     
 ## What's Changed
 ### Added
-* Update CODEOWNERS by @ShutingQing in https://github.com/camaraproject/DeviceSwap/pull/2
-* Update README.md w/ Meeting info by @wrathwolf in https://github.com/camaraproject/DeviceSwap/pull/7
-* Update CODEOWNERS by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/8
-* Update MAINTAINERS.MD by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/9
-* Update CODEOWNERS - adding Jorge Garcia Hospital by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/12
 * Initial proposal for Device Swap API by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/13
-* Update README.md by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/15
 * Clean error and description by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/18
-* Update device-swap description by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/17
-* Update APi actions descriptions by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/21
+* Updated device-swap description by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/17
+* Updated API actions descriptions by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/21
 
 ### Changed
 N/A
@@ -46,8 +40,6 @@ N/A
 N/A
 
 ## New Contributors
-* @ShutingQing made their first contribution in https://github.com/camaraproject/DeviceSwap/pull/2
-* @wrathwolf made their first contribution in https://github.com/camaraproject/DeviceSwap/pull/7
 * @bigludo7 made their first contribution in https://github.com/camaraproject/DeviceSwap/pull/8
 * @jgarciahospital made their first contribution in https://github.com/camaraproject/DeviceSwap/pull/13
 
