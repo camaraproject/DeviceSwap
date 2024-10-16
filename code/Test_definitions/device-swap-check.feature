@@ -72,6 +72,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
     Scenario: Check that the response shows that the device has not been swapped - maxAge is not provided in the request parameter
         Given a valid phone number identified by the token or provided in the request body
         And the device has never been swapped
+        And the sim card has been associated with this device for more than 240 hours
         When the request "checkDeviceSwap" is sent
         Then the response status code is 200
         And the value of response property "$.swapped" == false
@@ -80,6 +81,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
     Scenario Outline: Check that the response shows that the device has never been swapped - maxAge is provided in the request
         Given a valid phone number identified by the token or provided in the request body
         And the device has never been swapped
+        And the sim card has been associated with this device for more than 240 hours
         And the request body property "maxAge" is set to a value equal or greater than "<hours>" within the allowed range
         When the request "checkDeviceSwap" is sent
         Then the response status code is 200
@@ -91,15 +93,6 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
             | 120   |
             | 24    |
             | 12    |
-
-    # This scenario may not apply if the OB implementation does not allow a valid access token to be issued for a phone number that has never been connected to the network and, therefore, cannot reach the API.
-    @check_device_swap_8_NoDeviceSwapPhoneNumberNeverConnected
-    Scenario: Check that the response shows that the device has not been swapped when the phone number has never connected to the Operators's network so the device has never been activated
-        Given I want to test "checkDeviceSwap" for a user who has a phone number that has never been activated in the network
-        And this phone number is provided in the request body
-        When the request "checkDeviceSwap" is sent
-        Then the response status code is 200
-        And the value of response property "$.swapped" == false
 
   # Specific errors
 
