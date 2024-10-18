@@ -81,7 +81,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
     Scenario Outline: Check that the response shows that the device has never been swapped - maxAge is provided in the request
         Given a valid phone number identified by the token or provided in the request body
         And the device has never been swapped
-        And the sim card has been associated with this device for more than 240 hours
+        And the sim card has been associated with this device for more than "<hours>" hours
         And the request body property "maxAge" is set to a value equal or greater than "<hours>" within the allowed range
         When the request "checkDeviceSwap" is sent
         Then the response status code is 200
