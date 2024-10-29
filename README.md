@@ -22,8 +22,8 @@ Repository to describe, develop, document and test the Device Swap API family
 * The pre-release r1.1 contains the version 0.1.0-rc.1 of the Device Swap API. It is the first release candidate of the v0.1.0. The release tag is [r1.1](https://github.com/camaraproject/DeviceSwap/tree/r1.1).
 - 0.1.0-rc.1 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r1.1/code/API_definitions/device-swap.yaml)
-  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/blob/r1.1/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/blob/r1.1/code/API_definitions/device-swap.yaml)
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.1/code/API_definitions/device-swap.yaml&nocors)
+  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.1/code/API_definitions/device-swap.yaml)
 
 ## Contributing
 * Meetings are held virtually <!-- for new API families request a meeting link from the LF admin team or replace the information with the existing meeting information (of the API family) -->
