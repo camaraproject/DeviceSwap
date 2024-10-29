@@ -14,7 +14,7 @@ This release contains the definition and documentation of
 
 The API definition(s) are based on
 * Commonalities v0.4.0
-* Identity and Consent Management v0.2.0
+* Identity and Consent Management v0.2.1
 
 ## device-swap v0.1.0-rc.1
 
