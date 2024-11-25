@@ -52,8 +52,9 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
             | 12    |
 
     @check_device_swap_4_more_than_240_hours
-    Scenario: Check that the response shows that the device has not been swapped when the last swap was more than 240 hours ago
+    Scenario: Check that the response shows that the device has not been swapped when "maxAge" is not set and the last swap was more than 240 (default) hours ago
         Given a valid phone number identified by the token or provided in the request body
+        And the request body property "maxAge" is not setted
         And the device has been swapped more than 240 hours ago
         When the request "checkDeviceSwap" is sent
         Then the response status code is 200
@@ -82,7 +83,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
         Given a valid phone number identified by the token or provided in the request body
         And the device has never been swapped
         And the sim card has been associated with this device for more than "<hours>" hours
-        And the request body property "maxAge" is set to a value equal or greater than "<hours>" within the allowed range
+        And the request body property "maxAge" is set to a value less than "<hours>" within the allowed range
         When the request "checkDeviceSwap" is sent
         Then the response status code is 200
         And the value of response property "$.swapped" == false
@@ -189,7 +190,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
 
     @check_device_swap_400.2_invalid_max_age
     Scenario: Check that the response shows an error when the max age is invalid
-        Given the request body property "$.maxAge" does not comply with the OAS schema at "/components/schemas/CreateCheckSimSwap"
+        Given the request body property "$.maxAge" does not comply with the OAS schema at "/components/schemas/CreateCheckDeviceSwap"
         When the request "checkDeviceSwap" is sent
         Then the response status code is 400
         And the response property "$.status" is 400
