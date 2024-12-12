@@ -64,8 +64,8 @@ The API definition(s) are based on
 
 - 0.1.0-rc.1 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r1.1/code/API_definitions/device-swap.yaml)
-  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/blob/r1.1/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/blob/r1.1/code/API_definitions/device-swap.yaml)
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.1/code/API_definitions/device-swap.yaml&nocors)
+  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.1/code/API_definitions/device-swap.yaml)
     
 ## What's Changed
 ### Added
