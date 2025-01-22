@@ -25,7 +25,9 @@ info:
       
       The API provides 2 operations:
 
-        - POST retrieve-date: Provides timestamp of latest device swap for a given phone number. If no device swap has been performed, the API will return the first phone number usage in the device (the timestamp of the first time that the phone number was connected to the network, it is, the first time that the SIM is installed in the device) by default. It will return an empty string in case is not possible to retrieve the date (e.g. in case local regulations are preventing the safekeeping of the information for longer than the stated period, or in some edge error cases). In case no data is available in the operators records (e.g. no recorded event), API will return a 422 error.
+        POST retrieve-date: Provides timestamp of latest device swap, if any, for a given phone number.
+          - If no swap has been performed and the network operator supports unlimited DeviceSwap monitoring timeframe, the API will return the first phone number usage in a device (the timestamp of the first time that the phone number was connected to the network, it is, the first time that the SIM is installed in a device).
+          - If the latest device swap date (or the first phone number usage, if no device swap) cannot be communicated due to local regulations (or MNO internal privacy policies) preventing the safekeeping of the information for longer than the stated period, a `null` value will be returned. Optionally, a `monitoredPeriod` could be provided to indicate monitored time frame (in days) supported by the MNO. In this case the response must be treated as "there were no device swap events during 'monitoredPeriod'. Either the parameter is optional, it is recommended to support it in DeviceSwap implementations.
         - POST check: Checks if device swap has been performed during a past period (defined in the request with 'maxAge' attribute) for a given phone number, the API will return boolean response (true/false), indicating that the device has been swapped or not in the specified period. In case the phone number has never been installed in a device, or no data is available in the operators records (e.g. database error), API will return a 422 error.
 
 
@@ -94,6 +96,11 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/CreateDeviceSwapDate"
+            examples:
+              RETRIEVE_3LEGS:
+                $ref: "#/components/examples/RETRIEVE_3LEGS"
+              RETRIEVE_2LEGS:
+                $ref: "#/components/examples/RETRIEVE_2LEGS"
         required: true
       responses:
         "200":
@@ -105,6 +112,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/DeviceSwapInfo"
+              examples:
+                RETRIEVE_DATE:
+                  $ref: "#/components/examples/RETRIEVE_DATE"
+                RETRIEVE_MONITORED_PERIOD:
+                  $ref: "#/components/examples/RETRIEVE_MONITORED_PERIOD"
+                RETRIEVE_MONITORED_NULL:
+                  $ref: "#/components/examples/RETRIEVE_MONITORED_NULL"
         "400":
           $ref: "#/components/responses/Generic400"
         "401":
@@ -135,13 +149,18 @@ paths:
       parameters:
         - $ref: '#/components/parameters/x-correlator'
       requestBody:
+        required: true
         description: |
           Create a check device swap request for a phone number.
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/CreateCheckDeviceSwap"
-        required: true
+            examples:
+              CHECK_3LEGS:
+                $ref: "#/components/examples/CHECK_3LEGS"
+              CHECK_2LEGS:
+                $ref: "#/components/examples/CHECK_2LEGS"
       responses:
         "200":
           description: Returns whether a device swap has been performed during a past period
@@ -196,7 +215,11 @@ components:
           format: date-time
           description: Timestamp of latest device swap performed. It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone. Recommended format is yyyy-MM-dd'T'HH:mm:ss.SSSZ (i.e. which allows 2023-07-03T14:27:08.312+02:00 or 2023-07-03T12:27:08.312Z)
           nullable: true
-          example: "2023-07-03T14:27:08.312+02:00"    
+          example: "2023-07-03T14:27:08.312+02:00"
+        monitoredPeriod:
+          type: integer
+          description: Timeframe in days for SIM card change supervision for the phone number. It could be valued in the response if the latest SIM swap occurred before this monitored period.
+          example: 120
     CreateDeviceSwapDate:
       type: object
       properties:
@@ -421,3 +444,34 @@ components:
                 status: 504
                 code: TIMEOUT
                 message: Request timeout exceeded.
+  examples:
+    RETRIEVE_DATE:
+      summary: Lastest Device swap date is send back
+      value:
+        latestDeviceChange: 2024-09-18T07:37:53.471829447Z
+    RETRIEVE_MONITORED_NULL:
+      summary: Only null value is retrieved
+      value:
+        latestDeviceChange: null
+    RETRIEVE_MONITORED_PERIOD:
+      summary: null is send back for the date but a monitoredPeriod is provided
+      value:
+        latestDeviceChange: null
+        monitoredPeriod: 120
+    CHECK_2LEGS:
+      summary: Check request without 3-legged access tokens
+      value:
+        phoneNumber: "+346661113334"
+        maxAge: 120
+    CHECK_3LEGS:
+      summary: Check request with 3-legged access tokens
+      value:
+        maxAge: 120
+    RETRIEVE_2LEGS:
+      summary: Retrieve request without 3-legged access tokens
+      value:
+        phoneNumber: "+346661113334"
+    RETRIEVE_3LEGS:
+      summary: Retrieve request with 3-legged access tokens
+      value:
+        {}
