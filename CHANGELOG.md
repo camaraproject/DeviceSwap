@@ -34,6 +34,7 @@ The API definition(s) are based on
 
 ### Changed
 * Align commonalities v0.5 by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/34
+* Align Test cases related to the device identifier accordingly to Comm. by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/39
 
 ### Fixed
 N/A
