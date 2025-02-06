@@ -102,47 +102,62 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
     Scenario: Error when the phone number has never connected to the Operators's network so the device has never been activated
         Given a valid phone number provided in the request body
         And the sim for that device has never been connected to the Operator's network
-        When the request "checkDeviceSwap" is sent
+        When the HTTP "POST" request is sent
         Then the response status code is 422
         And the response property "$.status" is 422
         And the response property "$.code" is "NOT_SUPPORTED"
         And the response property "$.message" contains a user friendly text
 
-    @check_device_swap_9_phone_number_not_supported
-    Scenario: Error when the service is not supported for the provided phone number
-        Given the request body property "$.phoneNumber" is set to a phone number for which the service is not available
-        When the request "checkDeviceSwap" is sent
-        Then the response status code is 422
-        And the response property "$.status" is 422
-        And the response property "$.code" is "NOT_SUPPORTED"
+    # Test cases related to the device identifier
+
+    @check_device_swap_9_C02_01_phone_number_not_schema_compliant
+    Scenario: Phone number value does not comply with the schema
+        Given the header "Authorization" is set to a valid access token which does not identify a single phone number
+        And the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
+        When the HTTP "POST" request is sent
+        Then the response status code is 400
+        And the response property "$.status" is 400
+        And the response property "$.code" is "INVALID_ARGUMENT"
         And the response property "$.message" contains a user friendly text
 
-    @check_device_swap_10_phone_number_provided_does_not_match_the_token
-    Scenario: Error when the phone number provided in the request body does not match the phone number asssociated with the access token
-        Given the request body property "$.phoneNumber" is set to a valid testing phoneNumber that does not match the one associated with the token
-        And the header "Authorization" is set to a valid access token
-        When the request "checkDeviceSwap" is sent
-        Then the response status code is 403
-        And the response property "$.status" is 403
-        And the response property "$.code" is "INVALID_TOKEN_CONTEXT"
-        And the response property "$.message" contains a user friendly text
-
-    @check_device_swap_11_phone_number_not_provided_and_cannot_be_deducted_from_access_token
-    Scenario: Error when phone number can not be deducted from access token and it is not provided in the request body
-        Given the phone number is neither identified by the token nor provided in the request body
-        When the request "checkDeviceSwap" is sent
-        Then the response status code is 422
-        And the response property "$.status" is 422
-        And the response property "$.code" is "UNIDENTIFIABLE_PHONE_NUMBER"
-        And the response property "$.message" contains a user friendly text
-
-    @check_device_swap_12_phone_number_not_found
-    Scenario: Error when phone number not found
-        Given the request body property "$.phoneNumber" is compliant with the schema but does not identify a valid subscription
-        When the request "checkDeviceSwap" is sent
+    @check_device_swap_10_C02_02_phone_number_not_found
+    Scenario: Phone number not found
+        Given the header "Authorization" is set to a valid access token which does not identify a single phone number
+        And the request body property "$.phoneNumber" is compliant with the schema but does not identify a valid phone number
+        When the HTTP "POST" request is sent
         Then the response status code is 404
         And the response property "$.status" is 404
-        And the response property "$.code" is "NOT_FOUND"
+        And the response property "$.code" is "IDENTIFIER_NOT_FOUND"
+        And the response property "$.message" contains a user friendly text
+
+    @check_device_swap_11_C02_03_unnecessary_phone_number
+    Scenario: Phone number not to be included when it can be deduced from the access token
+        Given the header "Authorization" is set to a valid access token identifying a phone number
+        And  the request body property "$.phoneNumber" is set to a valid phone number
+        When the HTTP "POST" request is sent
+        Then the response status code is 422
+        And the response property "$.status" is 422
+        And the response property "$.code" is "UNNECESSARY_IDENTIFIER"
+        And the response property "$.message" contains a user friendly text
+
+    @check_device_swap_12_C02_04_missing_phone_number
+    Scenario: Phone number not included and cannot be deducted from the access token
+        Given the header "Authorization" is set to a valid access token which does not identify a single phone number
+        And the request body property "$.phoneNumber" is not included
+        When the HTTP "POST" request is sent
+        Then the response status code is 422
+        And the response property "$.status" is 422
+        And the response property "$.code" is "MISSING_IDENTIFIER"
+        And the response property "$.message" contains a user friendly text
+
+    @check_device_swap_13_C02_05_phone_number_not_supported
+    Scenario: Service not available for the phone number
+        Given that the service is not available for all phone numbers commercialized by the operator
+        And a valid phone number, identified by the token or provided in the request body, for which the service is not applicable
+        When the HTTP "POST" request is sent
+        Then the response status code is 422
+        And the response property "$.status" is 422
+        And the response property "$.code" is "SERVICE_NOT_APPLICABLE"
         And the response property "$.message" contains a user friendly text
 
     # Generic 401 errors
@@ -151,7 +166,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
     Scenario: No Authorization header
         Given the header "Authorization" is removed
         And the request body is set to a valid request body
-        When the request "checkDeviceSwap" is sent
+        When the HTTP "POST" request is sent
         Then the response status code is "401"
         And the response property "$.status" is 401
         And the response property "$.code" is "UNAUTHENTICATED"
@@ -161,7 +176,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
     Scenario: Expired access token
         Given the header "Authorization" is set to an expired access token
         And the request body is set to a valid request body
-        When the request "checkDeviceSwap" is sent
+        When the HTTP "POST" request is sent
         Then the response status code is "401"
         And the response property "$.status" is 401
         And the response property "$.code" is "UNAUTHENTICATED"
@@ -171,7 +186,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
     Scenario: Invalid access token
         Given the header "Authorization" is set to an invalid access token
         And the request body is set to a valid request body
-        When the request "checkDeviceSwap" is sent
+        When the HTTP "POST" request is sent
         Then the response status code is "401"
         And the response property "$.status" is 401
         And the response property "$.code" is "UNAUTHENTICATED"
@@ -179,19 +194,10 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
 
     # Generic 400 errors
 
-    @check_device_swap_400.1_invalid_phone_number
-    Scenario: Check that the response shows an error when the phone number is invalid
-        Given the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
-        When the request "checkDeviceSwap" is sent
-        Then the response status code is 400
-        And the response property "$.status" is 400
-        And the response property "$.code" is "INVALID_ARGUMENT"
-        And the response property "$.message" contains a user friendly text
-
     @check_device_swap_400.2_invalid_max_age
     Scenario: Check that the response shows an error when the max age is invalid
         Given the request body property "$.maxAge" does not comply with the OAS schema at "/components/schemas/CreateCheckDeviceSwap"
-        When the request "checkDeviceSwap" is sent
+        When the HTTP "POST" request is sent
         Then the response status code is 400
         And the response property "$.status" is 400
         And the response property "$.code" is "INVALID_ARGUMENT"
@@ -200,7 +206,7 @@ Feature: CAMARA Device Swap API, 0.1.0 - Operation checkDeviceSwap
     @check_device_swap_400.3_out_of_range
     Scenario: Error when maxAge is out of range
         Given the request body property "$.maxAge" is set to a value greater than the allowed range
-        When the request "checkDeviceSwap" is sent
+        When the HTTP "POST" request is sent
         Then the response status code is 400
         And the response property "$.status" is 400
         And the response property "$.code" is "OUT_OF_RANGE"
