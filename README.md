@@ -19,11 +19,11 @@ Repository to describe, develop, document and test the Device Swap API family
 
 ## Release Information
 * Note: Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
-* The release r1.2 contains the version 0.1.0 of the Device Swap API. The release tag is [r1.2](https://github.com/camaraproject/DeviceSwap/tree/r1.2).
-- 0.1.0 Device Swap API definition **with inline documentation**:
-  - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r1.2/code/API_definitions/device-swap.yaml)
-  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.2/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.2/code/API_definitions/device-swap.yaml)
+* The pre-release r2.1 contains the version 0.2.0-rc.1 of the Device Swap API. The release tag is [r2.1](https://github.com/camaraproject/DeviceSwap/tree/r2.1).
+- 0.2.0-rc.1 Device Swap API definition **with inline documentation**:
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r2.1/code/API_definitions/device-swap.yaml)
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.1/code/API_definitions/device-swap.yaml&nocors)
+  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.1/code/API_definitions/device-swap.yaml)
 * The latest public release is available here: https://github.com/camaraproject/DeviceSwap/releases/latest
 * Other releases of this sub project are available in https://github.com/camaraproject/DeviceSwap/releases
 * For changes see [CHANGELOG.md](https://github.com/camaraproject/DeviceSwap/blob/main/CHANGELOG.md)

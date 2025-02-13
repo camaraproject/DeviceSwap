@@ -1,15 +1,15 @@
-Feature: CAMARA Device Swap API, 0.1.0 - Operation retrieveDeviceSwapDate
+Feature: CAMARA Device Swap API, 0.2.0-rc.1 - Operation retrieveDeviceSwapDate
 
   # Input to be provided by the implementation to the tester
   #
   # Testing assets:
   #
-  # References to OAS spec schemas refer to schemas specifies in device_swap.yaml, version 0.1.0
+  # References to OAS spec schemas refer to schemas specifies in device-swap.yaml, version 0.2.0-rc.1
   #
   # Get timestamp of last device swap for a mobile user account provided with phone number.
 
     Background: Common retrieveDeviceSwapDate setup
-        Given the resource "device-swap/v0/retrieve-date"
+        Given the resource "device-swap/v0.2rc1/retrieve-date"
         And the header "Content-Type" is set to "application/json"
         And the header "Authorization" is set to a valid access token
         And the header "x-correlator" is set to a UUID value
