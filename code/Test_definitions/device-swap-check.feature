@@ -1,16 +1,16 @@
-Feature: CAMARA Device Swap API, 0.2.0-rc.1 - Operation checkDeviceSwap
+Feature: CAMARA Device Swap API, 0.2.0 - Operation checkDeviceSwap
 
   # Input to be provided by the implementation to the tester
   #
   # Testing assets:
   #
-  # References to OAS spec schemas refer to schemas specifies in device-swap.yaml, version 0.2.0-rc.1
+  # References to OAS spec schemas refer to schemas specifies in device-swap.yaml, version 0.2.0
   #
   # Check if device swap has been performed during a past period
 
 
     Background: Common checkDeviceSwap setup
-        Given the resource "device-swap/v0.2rc1/check"
+        Given the resource "device-swap/v0.2/check"
         And the header "Content-Type" is set to "application/json"
         And the header "Authorization" is set to a valid access token
         And the header "x-correlator" is set to a UUID value
