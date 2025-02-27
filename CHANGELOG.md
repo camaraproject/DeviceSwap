@@ -2,11 +2,50 @@
 
 ## Table of Contents
 
+- **[r2.2](#r22)**
 - [r2.1](#r21)
 - **[r1.2](#r12)**
 - [r1.1](#r11)
 
 **Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until it has been released. For example, changes may be reverted before a release is published. For the best results, use the latest published release.**
+
+# r2.2
+## Release Notes
+
+This release contains the definition and documentation of
+* device-swap v0.2.0
+
+The API definition(s) are based on
+* Commonalities v0.5.0
+* Identity and Consent Management v0.3.0
+
+## device-swap v0.2.0
+
+**device-swap v0.2.0 is the public release of the Device Swap API**
+
+- 0.2.0 Device Swap API definition **with inline documentation**:
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r2.2/code/API_definitions/device-swap.yaml)
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.2/code/API_definitions/device-swap.yaml&nocors)
+  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.2/code/API_definitions/device-swap.yaml)
+    
+Changes included in v0.2.0 compared to v0.1.0:
+### Added
+* Include MonitoredPeriod for Device Swap 0.2.0 by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/33
+* Add a pattern for x-correlator by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/36
+
+### Changed
+* Align commonalities v0.5 by @jgarciahospital in https://github.com/camaraproject/DeviceSwap/pull/34
+* Align Test cases related to the device identifier accordingly to Comm. by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/39
+
+### Fixed
+N/A
+### Removed
+N/A
+
+## New Contributors
+N/A
+
+**Full Changelog**: https://github.com/camaraproject/DeviceSwap/compare/r1.2...r2.2
 
 # r2.1
 ## Release Notes
