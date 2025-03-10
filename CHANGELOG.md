@@ -12,7 +12,7 @@
 # r2.2
 ## Release Notes
 
-This release contains the definition and documentation of
+This public release contains the definition and documentation of
 * device-swap v0.2.0
 
 The API definition(s) are based on
