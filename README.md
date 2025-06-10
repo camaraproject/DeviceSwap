@@ -5,8 +5,13 @@
 <a href="https://github.com/camaraproject/DeviceSwap" title="Repo Size"><img src="https://img.shields.io/github/repo-size/camaraproject/DeviceSwap?style=plastic"></a>
 <a href="https://github.com/camaraproject/DeviceSwap/blob/main/LICENSE" title="License"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=plastic"></a>
 <a href="https://github.com/camaraproject/DeviceSwap/releases/latest" title="Latest Release"><img src="https://img.shields.io/github/release/camaraproject/DeviceSwap?style=plastic"></a>
+<a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Sandbox API Repository"><img src="https://img.shields.io/badge/Sandbox%20API%20Repository-yellow?style=plastic"></a>
+
 # DeviceSwap
-Repository to describe, develop, document and test the Device Swap APIs
+
+Sandbox API Repository to describe, develop, document, and test the DeviceSwap Service API(s) within the Sub Project [Number Insights](https://lf-camaraproject.atlassian.net/wiki/x/BYEpBQ).
+
+* API Repository [wiki page](https://lf-camaraproject.atlassian.net/wiki/x/ijLe)
 
 ## Scope
 * Service APIs for “Device Swap” (see APIBacklog.md)  
@@ -28,13 +33,14 @@ Repository to describe, develop, document and test the Device Swap APIs
 * For changes see [CHANGELOG.md](https://github.com/camaraproject/DeviceSwap/blob/main/CHANGELOG.md)
 
 ## Contributing
-* Meetings are held virtually <!-- for new API families request a meeting link from the LF admin team or replace the information with the existing meeting information (of the API family) -->
-    * Schedule: Bi-Weekly, Tuesday, 11:00 CEST (09:00 UTC during European DST)
-    * [Registration / Join](https://zoom-lfx.platform.linuxfoundation.org/meeting/92029015046?password=e6f24cfd-3c64-4c69-880b-de88c6c327c2)
-    * Minutes: Access [meeting minutes](https://lf-camaraproject.atlassian.net/wiki/spaces/CAM/pages/14564332/DeviceSwap+2024+Minutes)
+* Meetings are held virtually
+    * Schedule: Every 4 weeks Thursday at 7:30 UTC
+    * [Registration / Join](https://zoom-lfx.platform.linuxfoundation.org/meeting/94893248838?password=05b2197d-309e-41ef-aadf-639f71ef7f38)
+    * Minutes: Access [meeting minutes](https://lf-camaraproject.atlassian.net/wiki/x/hDze)
+      *  [Minutes archive](https://lf-camaraproject.atlassian.net/wiki/x/5VPe) before May 2025
+
 * Mailing List
-    <!-- Note: the $sub-project-mailinglistname$ is either already existing or will be created by the CAMARA Admin Team  -->
-    * Subscribe / Unsubscribe to the mailing list of this Sub Project <https://lists.camaraproject.org/g/sp-dsw>.
-    * A message to the community of this Sub Project can be sent using <sp-dsw@lists.camaraproject.org>.
+    * Subscribe / Unsubscribe to the mailing list of this Sub Project <https://lists.camaraproject.org/g/sp-number-insights>.
+    * A message to the community of this Sub Project can be sent using <sp-number-insights@lists.camaraproject.org>.
 
 
