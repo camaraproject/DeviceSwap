@@ -26,7 +26,7 @@ The API definition(s) are based on
 - 0.2.0 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r2.2/code/API_definitions/device-swap.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.2/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.2/code/API_definitions/device-swap.yaml)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.2/code/API_definitions/device-swap.yaml)
     
 Changes included in v0.2.0 compared to v0.1.0:
 ### Added
@@ -64,7 +64,7 @@ The API definition(s) are based on
 - 0.2.0-rc.1 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r2.1/code/API_definitions/device-swap.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.1/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.1/code/API_definitions/device-swap.yaml)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.1/code/API_definitions/device-swap.yaml)
     
 ## What's Changed
 ### Added
@@ -102,7 +102,7 @@ The API definition(s) are based on
 - 0.1.0 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r1.2/code/API_definitions/device-swap.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.2/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.2/code/API_definitions/device-swap.yaml)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.2/code/API_definitions/device-swap.yaml)
     
 ## What's Changed
 ### Added
@@ -143,7 +143,7 @@ The API definition(s) are based on
 - 0.1.0-rc.1 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r1.1/code/API_definitions/device-swap.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.1/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.1/code/API_definitions/device-swap.yaml)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r1.1/code/API_definitions/device-swap.yaml)
     
 ## What's Changed
 ### Added
