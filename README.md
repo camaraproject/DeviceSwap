@@ -27,7 +27,7 @@ Sandbox API Repository to describe, develop, document, and test the DeviceSwap S
 - 0.2.0 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r2.2/code/API_definitions/device-swap.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.2/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.2/code/API_definitions/device-swap.yaml)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.2/code/API_definitions/device-swap.yaml)
 * The latest public release is available here: https://github.com/camaraproject/DeviceSwap/releases/latest
 * Other releases of this sub project are available in https://github.com/camaraproject/DeviceSwap/releases
 * For changes see [CHANGELOG.md](https://github.com/camaraproject/DeviceSwap/blob/main/CHANGELOG.md)
