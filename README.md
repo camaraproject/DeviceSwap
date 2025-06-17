@@ -20,6 +20,7 @@ Incubating API Repository to evolve and maintain the definitions and documentati
   * NOTE: The scope of these APIs should be limited (at least at a first stage) to 4G and 5G.  
 * Describe, develop, document and test the APIs (with 1-2 Telcos)  
 * Started: July  2024
+* * Incubating stage since: June 2025
 
 ## Release Information
 * Note: Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
