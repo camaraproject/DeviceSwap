@@ -5,11 +5,11 @@
 <a href="https://github.com/camaraproject/DeviceSwap" title="Repo Size"><img src="https://img.shields.io/github/repo-size/camaraproject/DeviceSwap?style=plastic"></a>
 <a href="https://github.com/camaraproject/DeviceSwap/blob/main/LICENSE" title="License"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=plastic"></a>
 <a href="https://github.com/camaraproject/DeviceSwap/releases/latest" title="Latest Release"><img src="https://img.shields.io/github/release/camaraproject/DeviceSwap?style=plastic"></a>
-<a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Sandbox API Repository"><img src="https://img.shields.io/badge/Sandbox%20API%20Repository-yellow?style=plastic"></a>
+<a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Incubating API Repository"><img src="https://img.shields.io/badge/Incubating%20API%20Repository-green?style=plastic"></a>
 
 # DeviceSwap
 
-Sandbox API Repository to describe, develop, document, and test the DeviceSwap Service API(s) within the Sub Project [Number Insights](https://lf-camaraproject.atlassian.net/wiki/x/BYEpBQ).
+Incubating API Repository to evolve and maintain the definitions and documentation of DeviceSwap Service API(s) within the Sub Project [Number Insights](https://lf-camaraproject.atlassian.net/wiki/x/BYEpBQ)
 
 * API Repository [wiki page](https://lf-camaraproject.atlassian.net/wiki/x/ijLe)
 
@@ -20,6 +20,7 @@ Sandbox API Repository to describe, develop, document, and test the DeviceSwap S
   * NOTE: The scope of these APIs should be limited (at least at a first stage) to 4G and 5G.  
 * Describe, develop, document and test the APIs (with 1-2 Telcos)  
 * Started: July  2024
+* * Incubating stage since: June 2025
 
 ## Release Information
 * Note: Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
