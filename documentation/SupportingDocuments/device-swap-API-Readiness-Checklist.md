@@ -13,7 +13,7 @@ Checklist for device-swap 0.1.0 in r1.2
 |  7 | Basic API test cases & documentation         |   O   |         M         |    M    |    M   |   Y  | [check](/code/Test_definitions/device-swap-check.feature) [retrieve](/code/Test_definitions/device-swap-retrieve-date.feature) |
 |  8 | Enhanced API test cases & documentation      |   O   |         O         |    O    |    M   |   Y  | [check](/code/Test_definitions/device-swap-check.feature) [retrieve](/code/Test_definitions/device-swap-retrieve-date.feature) |
 |  9 | Test result statement                        |   O   |         O         |    O    |    M   |   N  |  To be provided    |
-| 10 | API release numbering convention applied     |   M   |         M         |    M    |    M   |   Y  |      |
+| 10 | API release numbering convention applied     |   M   |         M         |    M    |    M   |   Y  |  r3.1    |
 | 11 | Change log updated                           |   M   |         M         |    M    |    M   |   Y  | [link](/CHANGELOG.md) |
 | 12 | Previous public release was certified        |   O   |         O         |    O    |    M   |   N  |      |
 | 13 | API description (for marketing)              |   O   |         O         |    M    |    M   |   Y  | [wiki link](https://lf-camaraproject.atlassian.net/wiki/xxx) |
