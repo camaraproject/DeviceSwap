@@ -63,10 +63,10 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.2.0
-  x-camara-commonalities: 0.5
+  version: 1.0.0-rc.1
+  x-camara-commonalities: 0.6
 servers:
-  - url: '{apiRoot}/device-swap/v0.2'
+  - url: '{apiRoot}/device-swap/v1rc1'
     variables:
       apiRoot:
         default: http://localhost:9091
