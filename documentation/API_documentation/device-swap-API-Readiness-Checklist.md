@@ -6,7 +6,7 @@ Checklist for device-swap v1.0.0-rc.1 in r3.1
 |----|----------------------------------------------|:-----:|:-----------------:|:-------:|:------:|:----:|:----:|
 |  1 | API definition                               |   M   |         M         |    M    |    M   |   Y  | [link](code/API_definitions/device-swap.yaml) |
 |  2 | Design guidelines from Commonalities applied |   O   |         M         |    M    |    M   |   Y  |  [r3.2](https://github.com/camaraproject/Commonalities/releases/tag/r3.2)    |
-|  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   |   Y  |  [r3.1](https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r3.1)    |
+|  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   |   Y  |  [r3.2](https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r3.2)    |
 |  4 | API versioning convention applied            |   M   |         M         |    M    |    M   |   Y  |  v1.0.0-rc.1    |
 |  5 | API documentation                            |   M   |         M         |    M    |    M   |   Y  | Embedded documentation into API spec - [link](/code/API_definitions/device-swap.yaml) |
 |  6 | User stories                                 |   O   |         O         |    O    |    M   |   Y  | [check](/documentation/API_documentation/device-swap_check_User_Story.md) [retrieve](/documentation/API_documentation/device-swap_retrieve_User_Story.md) |
