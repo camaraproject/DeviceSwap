@@ -13,7 +13,7 @@
 # r3.1
 ## Release Notes
 
-This public release contains the definition and documentation of
+This release contains the definition and documentation of
 * device-swap v1.0.0-rc.1
 
 The API definition(s) are based on
