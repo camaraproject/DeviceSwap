@@ -22,7 +22,7 @@ The API definition(s) are based on
 
 ## device-swap v1.0.0-rc.1
 
-This is the first **pre-release** of the device-swap API version v1.0.0-rc.1.
+This is the first **pre-release** of the device-swap API version v1.0.0.
 
 - 1.0.0-rc.1 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r3.1/code/API_definitions/device-swap.yaml)
