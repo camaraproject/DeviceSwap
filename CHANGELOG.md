@@ -35,6 +35,7 @@ N/A
 
 ### Changed
 * Update pattern for x-correlator by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/53
+* Rename test file to use valid operation: checkDeviceSwap.feature (instead of device-swap-check.feature) and retrieveDeviceSwapDate.feature (instead of device-swap-retrieve-date.feature) by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/59
 
 ### Fixed
 N/A
