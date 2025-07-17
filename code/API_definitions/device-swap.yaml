@@ -86,6 +86,7 @@ paths:
     post:
       tags:
         - Retrieve Device Swap Date
+      summary: Get last device swap date
       description: Get timestamp of last device swap for a mobile user account provided with phone number.
       operationId: retrieveDeviceSwapDate
       security:
@@ -139,6 +140,7 @@ paths:
     post:
       tags:
         - Check Device Swap
+      summary: Check last device swap date
       description: Check if device swap has been performed during a past period
       operationId: checkDeviceSwap
       security:
