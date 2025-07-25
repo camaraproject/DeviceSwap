@@ -63,7 +63,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.0-rc.1
+  version: wip
   x-camara-commonalities: 0.6
 
 externalDocs:
@@ -71,7 +71,7 @@ externalDocs:
   url: https://github.com/camaraproject/DeviceSwap
 
 servers:
-  - url: '{apiRoot}/device-swap/v1rc1'
+  - url: '{apiRoot}/device-swap/vwip'
     variables:
       apiRoot:
         default: http://localhost:9091
