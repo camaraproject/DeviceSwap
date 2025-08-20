@@ -10,7 +10,7 @@ Feature: CAMARA Device Swap API, wip - Operation checkDeviceSwap
 
 
     Background: Common checkDeviceSwap setup
-        Given the resource "device-swap/wip/check"
+        Given the resource "device-swap/vwip/check"
         And the header "Content-Type" is set to "application/json"
         And the header "Authorization" is set to a valid access token
         And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
