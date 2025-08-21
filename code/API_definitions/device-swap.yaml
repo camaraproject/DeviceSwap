@@ -268,7 +268,7 @@ components:
           description: Code given to this error
         message:
           type: string
-          description: Detailed error description  
+          description: Detailed error description
   responses:
     Generic400:
       description: Bad Request
