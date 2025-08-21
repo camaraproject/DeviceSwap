@@ -3,8 +3,8 @@ Feature: CAMARA Device Swap API, wip - Operation retrieveDeviceSwapDate
   # Input to be provided by the implementation to the tester
   #
   # Testing assets:
-  # * A device object which a device swap occured in the last 240 hours. 
-  # 
+  # * A device object which a device swap occured in the last 240 hours.
+  #
   # References to OAS spec schemas refer to schemas specifies in device-swap.yaml.
 
   Background: Common retrieveDeviceSwapDate setup
