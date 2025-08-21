@@ -3,7 +3,7 @@ Feature: CAMARA Device Swap API, wip - Operation checkDeviceSwap
   # Input to be provided by the implementation to the tester
   #
   # Testing assets:
-  # * A device object which a device swap occured in the last 240 hours. 
+  # * A device object which a device swap occured in the last 240 hours.
   # * for additional testing another device without device swapping last 240 hours.
   # References to OAS spec schemas refer to schemas specifies in device-swap.yaml
 
@@ -43,11 +43,11 @@ Feature: CAMARA Device Swap API, wip - Operation checkDeviceSwap
     And the value of response property "$.swapped" == true
 
     Examples:
-        | hours |
-        | 260   |
-        | 120   |
-        | 24    |
-        | 12    |
+      | hours |
+      | 260   |
+      | 120   |
+      | 24    |
+      | 12    |
 
   @check_device_swap_4_more_than_240_hours
   Scenario: Check that the response shows that the device has not been swapped when "maxAge" is not set and the last swap was more than 240 (default) hours ago
@@ -87,11 +87,11 @@ Feature: CAMARA Device Swap API, wip - Operation checkDeviceSwap
     And the value of response property "$.swapped" == false
 
     Examples:
-        | hours |
-        | 260   |
-        | 120   |
-        | 24    |
-        | 12    |
+      | hours |
+      | 260   |
+      | 120   |
+      | 24    |
+      | 12    |
 
   # Specific errors
 
