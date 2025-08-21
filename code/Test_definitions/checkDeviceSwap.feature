@@ -1,4 +1,5 @@
 Feature: CAMARA Device Swap API, wip - Operation checkDeviceSwap
+
   # Input to be provided by the implementation to the tester
   #
   # Testing assets:
