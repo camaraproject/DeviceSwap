@@ -6,7 +6,7 @@ info:
 
       # Introduction
 
-        The Device Swap API performs real-time checks on the last Device Swap event, providing real-time information about whether the SIM card associated with a user's phone number has been transferred to a different physical device. 
+        The Device Swap API performs real-time checks on the last Device Swap event, providing real-time information about whether the SIM card associated with a user's phone number has been transferred to a different physical device.
 
         Device Swap information can be invaluable for enhancing security, fraud detection, and ensuring compliance with regulatory requirements in various applications, apart from providing useful information of device upgrade trends in user segments.
 
@@ -22,7 +22,7 @@ info:
       # API Functionality
 
       The Device Swap API provides a programmable interface for developers and other users (capabilities consumers) to request the last date of a device swap performed on the mobile line, or, to check whether a device swap has been performed during a past period.
-      
+
       The API provides 2 operations:
 
       - POST retrieve-date: Provides timestamp of latest device swap, if any, for a given phone number.
@@ -81,7 +81,7 @@ tags:
     description: Receive the last date in which the device of the end-user was swapped
   - name: Check Device Swap
     description: Validate if the SIM of the end-user has been installed in a different device during a past period
-paths: 
+paths:
   /retrieve-date:
     post:
       tags:
@@ -91,9 +91,9 @@ paths:
       operationId: retrieveDeviceSwapDate
       security:
         - openId:
-          - device-swap
+            - device-swap
         - openId:
-          - device-swap:retrieve-date
+            - device-swap:retrieve-date
       parameters:
         - $ref: '#/components/parameters/x-correlator'
       requestBody:
@@ -145,9 +145,9 @@ paths:
       operationId: checkDeviceSwap
       security:
         - openId:
-          - device-swap
+            - device-swap
         - openId:
-          - device-swap:check
+            - device-swap:check
       parameters:
         - $ref: '#/components/parameters/x-correlator'
       requestBody:
@@ -268,7 +268,7 @@ components:
           description: Code given to this error
         message:
           type: string
-          description: Detailed error description   
+          description: Detailed error description
   responses:
     Generic400:
       description: Bad Request
@@ -288,8 +288,7 @@ components:
                 message: Client specified an invalid argument, request body or query param.
     Generic400Check:
       description: |-
-        Bad Request 
-        
+        Bad Request
         In addition to regular scenario of INVALID_ARGUMENT, other scenarios may exist:
         - Out of Range. Specific Syntax Exception used when a given field has a pre-defined range or a invalid filter criteria combination is requested ("code": "OUT_OF_RANGE","message": "Client specified an invalid range.")
       headers:
