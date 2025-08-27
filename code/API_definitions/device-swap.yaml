@@ -63,7 +63,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: wip
+  version: 1.0.0
   x-camara-commonalities: 0.6
 
 externalDocs:
@@ -71,7 +71,7 @@ externalDocs:
   url: https://github.com/camaraproject/DeviceSwap
 
 servers:
-  - url: '{apiRoot}/device-swap/vwip'
+  - url: '{apiRoot}/device-swap/v1'
     variables:
       apiRoot:
         default: http://localhost:9091
@@ -213,13 +213,12 @@ components:
         latestDeviceChange:
           type: string
           format: date-time
-          description: Timestamp of latest device swap performed. It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone. Recommended format is yyyy-MM-dd'T'HH:mm:ss.SSSZ (i.e. which allows 2023-07-03T14:27:08.312+02:00 or 2023-07-03T12:27:08.312Z)
+          description: Timestamp of latest device swap performed. It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
           nullable: true
           example: "2023-07-03T14:27:08.312+02:00"
         monitoredPeriod:
           type: integer
           description: Timeframe in days for device change supervision for the phone number. It could be valued in the response if the latest Device swap occurred before this monitored period.
-
           example: 120
     CreateDeviceSwapDate:
       type: object
@@ -260,15 +259,15 @@ components:
         - code
         - message
       properties:
+        message:
+          type: string
+          description: A human-readable description of what the event represents
         status:
           type: integer
           description: HTTP response status code
         code:
           type: string
-          description: Code given to this error
-        message:
-          type: string
-          description: Detailed error description
+          description: A human-readable code to describe the error
   responses:
     Generic400:
       description: Bad Request
