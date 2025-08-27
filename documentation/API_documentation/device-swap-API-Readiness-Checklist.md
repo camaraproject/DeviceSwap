@@ -12,7 +12,7 @@ Checklist for device-swap v1.0.0 in r3.2
 |  6 | User stories                                 |   O   |         O         |    O    |    M   |   Y  | [check](/documentation/API_documentation/device-swap_check_User_Story.md) [retrieve](/documentation/API_documentation/device-swap_retrieve_User_Story.md) |
 |  7 | Basic API test cases & documentation         |   O   |         M         |    M    |    M   |   Y  | [check](/code/Test_definitions/device-swap-checkDeviceSwap.feature) [retrieve](/code/Test_definitions/device-swap-retrieveDeviceSwapDate.feature) |
 |  8 | Enhanced API test cases & documentation      |   O   |         O         |    O    |    M   |   Y  | [check](/code/Test_definitions/device-swap-checkDeviceSwap.feature) [retrieve](/code/Test_definitions/device-swap-retrieveDeviceSwapDate.feature) |
-|  9 | Test result statement                        |   O   |         O         |    O    |    M   |   N  |   N/A     |
+|  9 | Test result statement                        |   O   |         O         |    O    |    M   |   N  |   To be provided     |
 | 10 | API release numbering convention applied     |   M   |         M         |    M    |    M   |   Y  |  r3.2    |
 | 11 | Change log updated                           |   M   |         M         |    M    |    M   |   Y  | [link](/CHANGELOG.md) |
 | 12 | Previous public release was certified        |   O   |         O         |    O    |    M   |   N  |     |
