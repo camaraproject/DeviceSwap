@@ -24,7 +24,7 @@ Incubating API Repository to evolve and maintain the definitions and documentati
 
 ## Release Information
 * Note: Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
-* `NEW`: Release r3.2 with **version 1.0.0** of the API device-swap is available [here](https://github.com/camaraproject/DeviceSwap/tree/r3.2).
+* `NEW`: Public release r3.2 with **version 1.0.0** of the API device-swap is available [here](https://github.com/camaraproject/DeviceSwap/tree/r3.2).
 - 1.0.0 Device Swap API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r3.2/code/API_definitions/device-swap.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r3.2/code/API_definitions/device-swap.yaml&nocors)
