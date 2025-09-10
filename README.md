@@ -19,16 +19,16 @@ Incubating API Repository to evolve and maintain the definitions and documentati
   * understand if the MSISDN has had a change of device in the last 30 days.
   * NOTE: The scope of these APIs should be limited (at least at a first stage) to 4G and 5G.  
 * Describe, develop, document and test the APIs (with 1-2 Telcos)  
-* Started: July  2024
+* Started: July 2024
 * * Incubating stage since: June 2025
 
 ## Release Information
 * Note: Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
-* `NEW`: Pre-release r3.1 with version 1.0.0-rc.1 of the API device-swap is available [here](https://github.com/camaraproject/DeviceSwap/tree/r3.1).
-- 1.0.0-rc.1 Device Swap API definition **with inline documentation**:
-  - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r3.1/code/API_definitions/device-swap.yaml)
-  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r3.1/code/API_definitions/device-swap.yaml&nocors)
-  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r3.1/code/API_definitions/device-swap.yaml)
+* `NEW`: Public release r3.2 with **version 1.0.0** of the API device-swap is available [here](https://github.com/camaraproject/DeviceSwap/tree/r3.2).
+- 1.0.0 Device Swap API definition **with inline documentation**:
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r3.2/code/API_definitions/device-swap.yaml)
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r3.2/code/API_definitions/device-swap.yaml&nocors)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r3.2/code/API_definitions/device-swap.yaml)
 * The latest public release is available here: https://github.com/camaraproject/DeviceSwap/releases/latest
 * Other releases of this sub project are available in https://github.com/camaraproject/DeviceSwap/releases
 * For changes see [CHANGELOG.md](https://github.com/camaraproject/DeviceSwap/blob/main/CHANGELOG.md)
@@ -43,5 +43,3 @@ Incubating API Repository to evolve and maintain the definitions and documentati
 * Mailing List
     * Subscribe / Unsubscribe to the mailing list of this Sub Project <https://lists.camaraproject.org/g/sp-number-insights>.
     * A message to the community of this Sub Project can be sent using <sp-number-insights@lists.camaraproject.org>.
-
-
