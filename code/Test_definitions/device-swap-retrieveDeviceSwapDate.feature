@@ -51,6 +51,7 @@ Feature: CAMARA Device Swap API, v1.0.0 - Operation retrieveDeviceSwapDate
     When the request "retrieveDeviceSwapDate" is sent
     Then the response status code is 200
     And the response property "$.latestDeviceChange" is null
+    And the response optionally contains the property "$.monitoredPeriod" with the value of monitored time frame (in days) supported by the MNO
 
   # Specific errors
 
