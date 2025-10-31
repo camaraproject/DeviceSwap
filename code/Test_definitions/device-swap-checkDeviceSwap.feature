@@ -25,6 +25,8 @@ Feature: CAMARA Device Swap API, v1.0.0 - Operation checkDeviceSwap
     And the response body complies with the OAS schema at "/components/schemas/CheckDeviceSwapInfo"
 
   # Scenarios testing specific situations
+
+  # For some Operators, the activation date is considered the first device swap event and if it is within the maxAge it is considered a swap
   @check_device_swap_2_valid_device_swap_no_max_age
   Scenario: Check that the response shows that the device has been swapped using default value for maxAge
     Given a valid phone number identified by the token or provided in the request body
@@ -33,6 +35,7 @@ Feature: CAMARA Device Swap API, v1.0.0 - Operation checkDeviceSwap
     Then the response status code is 200
     And the value of response property "$.swapped" == true
 
+  # For some Operators, the activation date is considered the first device swap event and if it is within the maxAge it is considered a swap
   @check_device_swap_3_valid_device_swap_max_age
   Scenario Outline: Check that the response shows that the device has been swapped - maxAge is provided in the request
     Given a valid phone number identified by the token or provided in the request body
