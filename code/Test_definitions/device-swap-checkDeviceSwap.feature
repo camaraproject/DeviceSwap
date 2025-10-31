@@ -223,7 +223,7 @@ Feature: CAMARA Device Swap API, v1.0.0 - Operation checkDeviceSwap
   Scenario: Check that the response shows an error when the max age is above the supported monitored period of the API Provider
     # This test only applies if the API Provider has a restricted monitored period by local regulations
     Given the request body property "$.maxAge" is set to a valid value above the supported monitored period of the API Provider
-    When the request "checkSimSwap" is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 400
     And the response property "$.status" is 400
     And the response property "$.code" is "OUT_OF_RANGE"
