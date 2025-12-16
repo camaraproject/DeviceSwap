@@ -51,11 +51,12 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
     When the request "retrieveDeviceSwapDate" is sent
     Then the response status code is 200
     And the response property "$.latestDeviceChange" is null
+    And the response optionally contains the property "$.monitoredPeriod" with the value of monitored time frame (in days) supported by the MNO
 
   # Specific errors
 
   # This test applies if the operator allows to do the request for a sim that has never been connected to the network
-  @retrieve_device_swap_date_5_not_activated
+  @retrieve_device_swap_date_422.1_not_activated
   Scenario: Error device swap date for a non-activated sim
     Given a valid phone number provided in the request body
     And the sim for that device has never been connected to the Operator's network
@@ -67,7 +68,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
 
   # Test cases related to the device identifier
 
-  @retrieve_device_swap_date_6_C02_01_phone_number_not_schema_compliant
+  @retrieve_device_swap_date_C02_01_phone_number_not_schema_compliant
   Scenario: Phone number value does not comply with the schema
     Given the header "Authorization" is set to a valid access token which does not identify a single phone number
     And the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
@@ -77,7 +78,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
 
-  @retrieve_device_swap_date_7_C02_02_phone_number_not_found
+  @retrieve_device_swap_date_C02_02_phone_number_not_found
   Scenario: Phone number not found
     Given the header "Authorization" is set to a valid access token which does not identify a single phone number
     And the request body property "$.phoneNumber" is compliant with the schema but does not identify a valid phone number
@@ -87,7 +88,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
     And the response property "$.code" is "IDENTIFIER_NOT_FOUND"
     And the response property "$.message" contains a user friendly text
 
-  @retrieve_device_swap_date_8_C02_03_unnecessary_phone_number
+  @retrieve_device_swap_date_C02_03_unnecessary_phone_number
   Scenario: Phone number not to be included when it can be deduced from the access token
     Given the header "Authorization" is set to a valid access token identifying a phone number
     And  the request body property "$.phoneNumber" is set to a valid phone number
@@ -97,7 +98,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
     And the response property "$.code" is "UNNECESSARY_IDENTIFIER"
     And the response property "$.message" contains a user friendly text
 
-  @check_device_swap_9_C02_04_missing_phone_number
+  @check_device_swap_C02_04_missing_phone_number
   Scenario: Phone number not included and cannot be deducted from the access token
     Given the header "Authorization" is set to a valid access token which does not identify a single phone number
     And the request body property "$.phoneNumber" is not included
@@ -107,7 +108,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
     And the response property "$.code" is "MISSING_IDENTIFIER"
     And the response property "$.message" contains a user friendly text
 
-  @retrieve_device_swap_date_10_C02_05_phone_number_not_supported
+  @retrieve_device_swap_date_C02_05_phone_number_not_supported
   Scenario: Service not available for the phone number
     Given that the service is not available for all phone numbers commercialized by the operator
     And a valid phone number, identified by the token or provided in the request body, for which the service is not applicable
