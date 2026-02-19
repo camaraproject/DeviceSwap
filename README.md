@@ -30,7 +30,7 @@ Incubating API Repository to evolve and maintain the definitions and documentati
 > [!NOTE]
 > Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
 
-* **NEW**: The latest public release is [r3.2](https://github.com/camaraproject/DeviceSwap/releases/tag/r3.2) (Fall25), with the following API versions:
+* The latest public release is [r3.2](https://github.com/camaraproject/DeviceSwap/releases/tag/r3.2) (Fall25), with the following API versions:
   * **device-swap v1.0.0**
   [[YAML]](https://github.com/camaraproject/DeviceSwap/blob/r3.2/code/API_definitions/device-swap.yaml)
   [[ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r3.2/code/API_definitions/device-swap.yaml&nocors)
