@@ -17,7 +17,7 @@ Feature: CAMARA Device Swap API, 0.2.0 - Operation retrieveDeviceSwapDate
 
     # This first scenario serves as a minimum, not testing any specific verificationResult
     @retrieve_device_swap_date_1_generic_success_scenario
-    Scenario: Common validations for any sucess scenario
+    Scenario: Common validations for any success scenario
         Given a valid phone number identified by the token or provided in the request body
         When the request "retrieveDeviceSwapDate" is sent
         Then the response status code is 200
@@ -28,7 +28,7 @@ Feature: CAMARA Device Swap API, 0.2.0 - Operation retrieveDeviceSwapDate
     # Scenarios testing specific situations
 
     @retrieve_device_swap_date_2_valid_device_swap
-    Scenario: Retrieve decive swap date for a valid device swap
+    Scenario: Retrieve device swap date for a valid device swap
         Given a valid phone number identified by the token or provided in the request body
         And the device has been swapped
         When the request "retrieveDeviceSwapDate" is sent
@@ -64,7 +64,7 @@ Feature: CAMARA Device Swap API, 0.2.0 - Operation retrieveDeviceSwapDate
         When the HTTP "POST" request is sent
         Then the response status code is 422
         And the response property "$.status" is 422
-        And the response property "$.code" is "NOT_SUPPORTED"
+        And the response property "$.code" is "SERVICE_NOT_APPLICABLE"
         And the response property "$.message" contains a user friendly text
 
     # Test cases related to the device identifier
