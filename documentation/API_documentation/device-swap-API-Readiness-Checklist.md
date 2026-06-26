@@ -1,6 +1,6 @@
 # API Readiness Checklist
 
-Checklist for device-swap 0.2.0 in r2.2
+Checklist for device-swap 0.2.0 in r2.3
 
 | Nr | API release assets  | alpha | release-candidate |  initial<br>public | stable<br> public | Status | Reference information  |
 |----|----------------------------------------------|:-----:|:-----------------:|:-------:|:------:|:----:|:----:|
