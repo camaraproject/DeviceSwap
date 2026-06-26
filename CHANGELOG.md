@@ -2,12 +2,51 @@
 
 ## Table of Contents
 
-- **[r2.2](#r22)**
+- **[r2.3](#r23)**
+- [r2.2](#r22)
 - [r2.1](#r21)
 - **[r1.2](#r12)**
 - [r1.1](#r11)
 
 **Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until it has been released. For example, changes may be reverted before a release is published. For the best results, use the latest published release.**
+
+# r2.3
+## Release Notes
+
+This public release contains the definition and documentation of
+* device-swap v0.2.0
+
+The API definition(s) are based on
+* Commonalities v0.5.0
+* Identity and Consent Management v0.3.0
+
+## device-swap v0.2.0
+
+**device-swap v0.2.0 is the public release of the Device Swap API**
+
+- 0.2.0 Device Swap API definition **with inline documentation**:
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r2.3/code/API_definitions/device-swap.yaml)
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.3/code/API_definitions/device-swap.yaml&nocors)
+  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r2.3/code/API_definitions/device-swap.yaml)
+
+Changes included in v0.2.0 in r2.3 compared to r2.2:
+### Added
+N/A
+
+### Changed
+N/A
+
+### Fixed
+
+* fix scenario error code and typos by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/87
+
+### Removed
+N/A
+
+## New Contributors
+N/A
+
+**Full Changelog**: https://github.com/camaraproject/DeviceSwap/compare/r2.2...r2.3
 
 # r2.2
 ## Release Notes
