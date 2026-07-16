@@ -64,11 +64,11 @@ info:
       As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error response if it is explicitly documented in the API.
       <!-- CAMARA:MANDATORY:additional-error-responses:END -->
 
-    <!-- CAMARA:MANDATORY:request-body-strictness:BEGIN -->
-    # Request body strictness
+      <!-- CAMARA:MANDATORY:request-body-strictness:BEGIN -->
+      # Request body strictness
 
-    This API rejects requests with JSON request bodies that contain properties not declared in this specification, at any nesting level. Unknown properties result in a `400 INVALID_ARGUMENT` response.
-    <!-- CAMARA:MANDATORY:request-body-strictness:END -->
+      This API rejects requests with JSON request bodies that contain properties not declared in this specification, at any nesting level. Unknown properties result in a `400 INVALID_ARGUMENT` response.
+      <!-- CAMARA:MANDATORY:request-body-strictness:END -->
 
   license:
     name: Apache 2.0
