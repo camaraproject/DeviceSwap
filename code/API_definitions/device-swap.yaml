@@ -2,86 +2,80 @@ openapi: 3.0.3
 info:
   title: Device Swap
   description: |
-      This API allows to check the last time that the phone (device) - phone number association has changed
+    This API allows to check the last time that the phone (device) - phone number association has changed
 
-      # Introduction
+    # Introduction
 
-        The Device Swap API performs real-time checks on the last Device Swap event, providing real-time information about whether the SIM card associated with a user's phone number has been transferred to a different physical device.
+      The Device Swap API performs real-time checks on the last Device Swap event, providing real-time information about whether the SIM card associated with a user's phone number has been transferred to a different physical device.
 
-        Device Swap information can be invaluable for enhancing security, fraud detection, and ensuring compliance with regulatory requirements in various applications, apart from providing useful information of device upgrade trends in user segments.
+      Device Swap information can be invaluable for enhancing security, fraud detection, and ensuring compliance with regulatory requirements in various applications, apart from providing useful information of device upgrade trends in user segments.
 
-        This API is used by an application to get information about a mobile line's latest Device Swap date. It can be easily integrated and used through this secured API and allows API consumers to get this information in an easy and secured way. The API provides management of 2 endpoints answering 2 distinct questions:
+      This API is used by an application to get information about a mobile line's latest Device Swap date. It can be easily integrated and used through this secured API and allows API consumers to get this information in an easy and secured way. The API provides management of 2 endpoints answering 2 distinct questions:
 
-        * When did the last Device Swap occur?
-        * Has a Device Swap occurred during the last n hours?
+      * When did the last Device Swap occur?
+      * Has a Device Swap occurred during the last n hours?
 
-      # Relevant terms and definitions
+    # Relevant terms and definitions
 
-      **Device Swap:** A Device Swap is a process in which the association between a user's mobile phone number (MSISDN) and a device (IMEI) is created for the first time or changes for any reasons.
+    **Device Swap:** A Device Swap is a process in which the association between a user's mobile phone number (MSISDN) and a device (IMEI) is created for the first time or changes for any reasons.
 
-      # API Functionality
+    # API Functionality
 
-      The Device Swap API provides a programmable interface for developers and other users (capabilities consumers) to request the last date of a device swap performed on the mobile line, or, to check whether a device swap has been performed during a past period.
+    The Device Swap API provides a programmable interface for developers and other users (capabilities consumers) to request the last date of a device swap performed on the mobile line, or, to check whether a device swap has been performed during a past period.
 
-      The API provides 2 operations:
+    The API provides 2 operations:
 
-      - POST retrieve-date: Provides timestamp of latest device swap, if any, for a given phone number.
-          - If no swap has been performed and the network operator supports unlimited DeviceSwap monitoring timeframe, the API will return the first phone number usage in a device (the timestamp of the first time that the phone number was connected to the network, it is, the first time that the SIM is installed in a device).
-          - If the latest device swap date (or the first phone number usage, if no device swap) cannot be communicated due to local regulations (or Network Operator internal privacy policies) preventing the safekeeping of the information for longer than the stated period, a `null` value will be returned. Optionally, a `monitoredPeriod` could be provided to indicate monitored time frame (in days) supported by the Network Operator. In this case the response must be treated as "there were no device swap events during 'monitoredPeriod'. Either the parameter is optional, it is recommended to support it in DeviceSwap implementations.
-      - POST check: Checks if device swap has been performed during a past period (defined in the request with 'maxAge' attribute) for a given phone number, the API will return boolean response (true/false), indicating that the device has been swapped or not in the specified period. In case the phone number has never been installed in a device, or no data is available in the operators records (e.g. database error), API will return a 422 error.
+    - POST retrieve-date: Provides timestamp of latest device swap, if any, for a given phone number.
+        - If no swap has been performed and the network operator supports unlimited DeviceSwap monitoring timeframe, the API will return the first phone number usage in a device (the timestamp of the first time that the phone number was connected to the network, it is, the first time that the SIM is installed in a device).
+        - If the latest device swap date (or the first phone number usage, if no device swap) cannot be communicated due to local regulations (or Network Operator internal privacy policies) preventing the safekeeping of the information for longer than the stated period, a `null` value will be returned. Optionally, a `monitoredPeriod` could be provided to indicate monitored time frame (in days) supported by the Network Operator. In this case the response must be treated as "there were no device swap events during 'monitoredPeriod'. Either the parameter is optional, it is recommended to support it in DeviceSwap implementations.
+    - POST check: Checks if device swap has been performed during a past period (defined in the request with 'maxAge' attribute) for a given phone number, the API will return boolean response (true/false), indicating that the device has been swapped or not in the specified period. In case the phone number has never been installed in a device, or no data is available in the operators records (e.g. database error), API will return a 422 error.
 
-      # Identifying the phone number from the access token
+    # Identifying the phone number from the access token
 
-      This API requires the API consumer to identify a phone number as the subject of the API. There is 2 ways to retrieve it depending on the authorization flow used:
-      - When the API is invoked using a two-legged access token, the phone number will be identified from the optional `phoneNumber` identifier, which therefore MUST be provided.
-      - When a three-legged access token is used however, this optional `phoneNumber` identifier MUST NOT be provided, as the phone number will be uniquely identified from the access token.
+    This API requires the API consumer to identify a phone number as the subject of the API. There is 2 ways to retrieve it depending on the authorization flow used:
+    - When the API is invoked using a two-legged access token, the phone number will be identified from the optional `phoneNumber` identifier, which therefore MUST be provided.
+    - When a three-legged access token is used however, this optional `phoneNumber` identifier MUST NOT be provided, as the phone number will be uniquely identified from the access token.
 
-      This approach simplifies API usage for API consumers using a three-legged access token to invoke the API by relying on the information that is associated with the access token and was identified during the authentication process.
+    This approach simplifies API usage for API consumers using a three-legged access token to invoke the API by relying on the information that is associated with the access token and was identified during the authentication process.
 
-      ## Error handling:
+    ## Error handling:
 
-      - If the phoneNumber cannot be identified from the access token and the optional `phoneNumber` identifier is not included in the request, then the server will return an error with the `422 MISSING_IDENTIFIER` error code.
+    - If the phoneNumber cannot be identified from the access token and the optional `phoneNumber` identifier is not included in the request, then the server will return an error with the `422 MISSING_IDENTIFIER` error code.
 
-      - If the phoneNumber can be identified from the access token and the optional `phoneNumber` identifier is also included in the request, then the server will return an error with the `422 UNNECESSARY_IDENTIFIER` error code. This will be the case even if the same device is identified by these two methods, as the server is unable to make this comparison.
+    - If the phoneNumber can be identified from the access token and the optional `phoneNumber` identifier is also included in the request, then the server will return an error with the `422 UNNECESSARY_IDENTIFIER` error code. This will be the case even if the same device is identified by these two methods, as the server is unable to make this comparison.
 
-      <!-- CAMARA:MANDATORY:authorization-and-authentication:BEGIN -->
-      # Authorization and authentication
+    <!-- CAMARA:MANDATORY:authorization-and-authentication:BEGIN -->
+    # Authorization and authentication
 
-      The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
+    The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
 
-      The specific authorization flows to be used will be agreed upon during the onboarding process, happening between the API consumer and the API provider, taking into account the declared purpose for accessing the API, whilst also being subject to the prevailing legal framework dictated by local legislation.
+    The specific authorization flows to be used will be agreed upon during the onboarding process, happening between the API consumer and the API provider, taking into account the declared purpose for accessing the API, whilst also being subject to the prevailing legal framework dictated by local legislation.
 
-      In cases where personal data is processed by the API and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of three-legged access tokens is mandatory. This ensures that the API remains in compliance with privacy regulations, upholding the principles of transparency and user-centric privacy-by-design.
-      <!-- CAMARA:MANDATORY:authorization-and-authentication:END -->
+    In cases where personal data is processed by the API and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of three-legged access tokens is mandatory. This ensures that the API remains in compliance with privacy regulations, upholding the principles of transparency and user-centric privacy-by-design.
+    <!-- CAMARA:MANDATORY:authorization-and-authentication:END -->
 
-      <!-- CAMARA:MANDATORY:additional-error-responses:BEGIN -->
-      # Additional CAMARA error responses
+    <!-- CAMARA:MANDATORY:additional-error-responses:BEGIN -->
+    # Additional CAMARA error responses
 
-      The list of error codes in this API specification is not exhaustive. Therefore the API specification MAY not document some non-mandatory error statuses as indicated in `CAMARA API Design Guide`.
+    The list of error codes in this API specification is not exhaustive. Therefore the API specification MAY not document some non-mandatory error statuses as indicated in `CAMARA API Design Guide`.
 
-      Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated to this API version for a complete list of error responses. The applicable Commonalities Release can be identified in the `API Readiness Checklist` document associated to this API version.
+    Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated to this API version for a complete list of error responses. The applicable Commonalities Release can be identified in the `API Readiness Checklist` document associated to this API version.
 
-      As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error response if it is explicitly documented in the API.
-      <!-- CAMARA:MANDATORY:additional-error-responses:END -->
+    As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error response if it is explicitly documented in the API.
+    <!-- CAMARA:MANDATORY:additional-error-responses:END -->
 
-      <!-- CAMARA:MANDATORY:request-body-strictness:BEGIN -->
-      # Request body strictness
+    <!-- CAMARA:MANDATORY:request-body-strictness:BEGIN -->
+    # Request body strictness
 
-      This API rejects requests with JSON request bodies that contain properties not declared in this specification, at any nesting level. Unknown properties result in a `400 INVALID_ARGUMENT` response.
-      <!-- CAMARA:MANDATORY:request-body-strictness:END -->
-
+    This API rejects requests with JSON request bodies that contain properties not declared in this specification, at any nesting level. Unknown properties result in a `400 INVALID_ARGUMENT` response.
+    <!-- CAMARA:MANDATORY:request-body-strictness:END -->
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: wip
-  x-camara-commonalities: 0.6
-
-externalDocs:
-  description: Product documentation at CAMARA
-  url: https://github.com/camaraproject/DeviceSwap
-
+  version: 1.1.0-rc.2
+  x-camara-commonalities: 0.8.0
 servers:
-  - url: '{apiRoot}/device-swap/vwip'
+  - url: '{apiRoot}/device-swap/v1rc2'
     variables:
       apiRoot:
         default: http://localhost:9091
@@ -91,6 +85,9 @@ tags:
     description: Receive the last date in which the device of the end-user was swapped
   - name: Check Device Swap
     description: Validate if the SIM of the end-user has been installed in a different device during a past period
+externalDocs:
+  description: Product documentation at CAMARA
+  url: https://github.com/camaraproject/DeviceSwap
 paths:
   /retrieve-date:
     post:
@@ -105,47 +102,47 @@ paths:
         - openId:
             - device-swap:retrieve-date
       parameters:
-        - $ref: "../common/CAMARA_common.yaml#/components/parameters/x-correlator"
+        - $ref: '#/components/parameters/x-correlator'
       requestBody:
         description: |
           Create a device swap date request for a phone number.
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateDeviceSwapDate"
+              $ref: '#/components/schemas/CreateDeviceSwapDate'
             examples:
               RETRIEVE_3LEGS:
-                $ref: "#/components/examples/RETRIEVE_3LEGS"
+                $ref: '#/components/examples/RETRIEVE_3LEGS'
               RETRIEVE_2LEGS:
-                $ref: "#/components/examples/RETRIEVE_2LEGS"
+                $ref: '#/components/examples/RETRIEVE_2LEGS'
         required: true
       responses:
-        "200":
+        '200':
           description: Contains information about Device swap change
           headers:
             x-correlator:
-              $ref: "../common/CAMARA_common.yaml#/components/parameters/x-correlator"
+              $ref: '#/components/headers/x-correlator'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeviceSwapInfo"
+                $ref: '#/components/schemas/DeviceSwapInfo'
               examples:
                 RETRIEVE_DATE:
-                  $ref: "#/components/examples/RETRIEVE_DATE"
+                  $ref: '#/components/examples/RETRIEVE_DATE'
                 RETRIEVE_MONITORED_PERIOD:
-                  $ref: "#/components/examples/RETRIEVE_MONITORED_PERIOD"
+                  $ref: '#/components/examples/RETRIEVE_MONITORED_PERIOD'
                 RETRIEVE_MONITORED_NULL:
-                  $ref: "#/components/examples/RETRIEVE_MONITORED_NULL"
-        "400":
-          $ref: "../common/CAMARA_common.yaml#/components/responses/Generic400"
-        "401":
-          $ref: "../common/CAMARA_common.yaml#/components/responses/Generic401"
-        "403":
-          $ref: "#/components/responses/Generic403"
-        "404":
-          $ref: "../common/CAMARA_common.yaml#/components/responses/Generic404"
-        "422":
-          $ref: "#/components/responses/Generic422"
+                  $ref: '#/components/examples/RETRIEVE_MONITORED_NULL'
+        '400':
+          $ref: '#/components/responses/Generic400'
+        '401':
+          $ref: '#/components/responses/Generic401'
+        '403':
+          $ref: '#/components/responses/Generic403'
+        '404':
+          $ref: '#/components/responses/Generic404'
+        '422':
+          $ref: '#/components/responses/Generic422'
   /check:
     post:
       tags:
@@ -159,7 +156,7 @@ paths:
         - openId:
             - device-swap:check
       parameters:
-        - $ref: "../common/CAMARA_common.yaml#/components/parameters/x-correlator"
+        - $ref: '#/components/parameters/x-correlator'
       requestBody:
         required: true
         description: |
@@ -167,36 +164,38 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateCheckDeviceSwap"
+              $ref: '#/components/schemas/CreateCheckDeviceSwap'
             examples:
               CHECK_3LEGS:
-                $ref: "#/components/examples/CHECK_3LEGS"
+                $ref: '#/components/examples/CHECK_3LEGS'
               CHECK_2LEGS:
-                $ref: "#/components/examples/CHECK_2LEGS"
+                $ref: '#/components/examples/CHECK_2LEGS'
       responses:
-        "200":
+        '200':
           description: Returns whether a device swap has been performed during a past period
           headers:
             x-correlator:
-              $ref: "../common/CAMARA_common.yaml#/components/parameters/x-correlator"
+              $ref: '#/components/headers/x-correlator'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CheckDeviceSwapInfo"
-        "400":
-          $ref: "../common/CAMARA_common.yaml#/components/responses/Generic400"
-        "401":
-          $ref: "../common/CAMARA_common.yaml#/components/responses/Generic401"
-        "403":
-          $ref: "#/components/responses/Generic403"
-        "404":
-          $ref: "../common/CAMARA_common.yaml#/components/responses/Generic404"
-        "422":
-          $ref: "#/components/responses/Generic422"
+                $ref: '#/components/schemas/CheckDeviceSwapInfo'
+        '400':
+          $ref: '#/components/responses/Generic400'
+        '401':
+          $ref: '#/components/responses/Generic401'
+        '403':
+          $ref: '#/components/responses/Generic403'
+        '404':
+          $ref: '#/components/responses/Generic404'
+        '422':
+          $ref: '#/components/responses/Generic422'
 components:
   securitySchemes:
     openId:
-      $ref: "../common/CAMARA_common.yaml#/components/securitySchemes/openId"
+      type: openIdConnect
+      openIdConnectUrl: https://example.com/.well-known/openid-configuration
+      description: OpenID Connect authentication via discovery metadata.
   schemas:
     DeviceSwapInfo:
       type: object
@@ -210,7 +209,7 @@ components:
           description: Timestamp of latest device swap performed. It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
           maxLength: 64
           nullable: true
-          example: "2023-07-03T14:27:08.312+02:00"
+          example: '2023-07-03T14:27:08.312+02:00'
         monitoredPeriod:
           type: integer
           description: Timeframe in days for device change supervision for the phone number. It could be valued in the response if the latest Device swap occurred before this monitored period.
@@ -222,13 +221,13 @@ components:
       description: Definition of the data that must be provided in the request body for check operation
       properties:
         phoneNumber:
-          $ref: "#/components/schemas/PhoneNumber"
+          $ref: '#/components/schemas/PhoneNumber'
     CreateCheckDeviceSwap:
       type: object
       description: Definition of the data that must be provided in the request body for check operation
       properties:
         phoneNumber:
-          $ref: "#/components/schemas/PhoneNumber"
+          $ref: '#/components/schemas/PhoneNumber'
         maxAge:
           type: integer
           example: 240
@@ -239,7 +238,11 @@ components:
           maximum: 2400
           default: 240
     PhoneNumber:
-      $ref: "../common/CAMARA_common.yaml#/components/schemas/PhoneNumber"
+      description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
+      type: string
+      pattern: ^\+[1-9][0-9]{4,14}$
+      maxLength: 16
+      example: '+123456789'
     CheckDeviceSwapInfo:
       type: object
       description: Definition of the data that must be provided in the request body for check operation
@@ -249,17 +252,45 @@ components:
         swapped:
           type: boolean
           description: Indicates whether the device has been swapped during the period within the provided age.
+    XCorrelator:
+      type: string
+      description: Correlator string, UUID format recommended but any string matching the pattern can be used
+      pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
+      maxLength: 256
+      example: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+    ErrorInfo:
+      type: object
+      description: A structured error response providing details about a failed request, including the HTTP status code, an error code, and a human-readable message
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          format: int32
+          minimum: 100
+          maximum: 599
+          description: HTTP response status code
+        code:
+          type: string
+          maxLength: 96
+          description: A human-readable code to describe the error
+        message:
+          type: string
+          maxLength: 512
+          description: A human-readable description of what the event represents
   responses:
     Generic403:
       description: Forbidden
       headers:
         x-correlator:
-          $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
+          $ref: '#/components/headers/x-correlator-2'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - $ref: '#/components/schemas/ErrorInfo'
               - type: object
                 properties:
                   status:
@@ -279,12 +310,12 @@ components:
       description: Unprocessable Content
       headers:
         x-correlator:
-          $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
+          $ref: '#/components/headers/x-correlator-2'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - $ref: '#/components/schemas/ErrorInfo'
               - type: object
                 properties:
                   status:
@@ -314,12 +345,101 @@ components:
                 status: 422
                 code: UNNECESSARY_IDENTIFIER
                 message: The device is already identified by the access token.
+    Generic400:
+      description: Bad Request
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/x-correlator-2'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/ErrorInfo'
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 400
+                  code:
+                    enum:
+                      - INVALID_ARGUMENT
+                      - OUT_OF_RANGE
+          examples:
+            GENERIC_400_INVALID_ARGUMENT:
+              description: Invalid Argument. Generic Syntax Exception
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: Client specified an invalid argument, request body or query param.
+            GENERIC_400_OUT_OF_RANGE:
+              description: Out of Range. Specific Syntax Exception used when a given field has a pre-defined range or a invalid filter criteria combination is requested
+              value:
+                status: 400
+                code: OUT_OF_RANGE
+                message: Client specified an invalid range.
+    Generic401:
+      description: Unauthorized
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/x-correlator-2'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/ErrorInfo'
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 401
+                  code:
+                    enum:
+                      - UNAUTHENTICATED
+          examples:
+            GENERIC_401_UNAUTHENTICATED:
+              description: Request cannot be authenticated and a new authentication is required
+              value:
+                status: 401
+                code: UNAUTHENTICATED
+                message: Request not authenticated due to missing, invalid, or expired credentials. A new authentication is required.
+    Generic404:
+      description: Not found
+      headers:
+        x-correlator:
+          $ref: '#/components/headers/x-correlator-2'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/ErrorInfo'
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 404
+                  code:
+                    enum:
+                      - NOT_FOUND
+                      - IDENTIFIER_NOT_FOUND
+          examples:
+            GENERIC_404_NOT_FOUND:
+              description: Resource is not found
+              value:
+                status: 404
+                code: NOT_FOUND
+                message: The specified resource is not found.
+            GENERIC_404_IDENTIFIER_NOT_FOUND:
+              description: Some identifier cannot be matched to a device
+              value:
+                status: 404
+                code: IDENTIFIER_NOT_FOUND
+                message: Device identifier not found.
   examples:
     RETRIEVE_DATE:
       summary: Lastest Device swap date is send back
       description: Lastest device swap date is send back
       value:
-        latestDeviceChange: 2024-09-18T07:37:53.471829447Z
+        latestDeviceChange: '2024-09-18T07:37:53.471829447Z'
     RETRIEVE_MONITORED_NULL:
       summary: Only null value is retrieved
       description: As latest device swap date is too long ago, null value is sent back
@@ -335,7 +455,7 @@ components:
       summary: Check request without 3-legged access tokens
       description: Check request in 2-legs (with phoneNumber in the request body)
       value:
-        phoneNumber: "+346661113334"
+        phoneNumber: '+346661113334'
         maxAge: 120
     CHECK_3LEGS:
       summary: Check request with 3-legged access tokens
@@ -346,9 +466,26 @@ components:
       summary: Retrieve request without 3-legged access tokens
       description: Retrieve request in 2-legs (with phoneNumber in the request body)
       value:
-        phoneNumber: "+346661113334"
+        phoneNumber: '+346661113334'
     RETRIEVE_3LEGS:
       summary: Retrieve request with 3-legged access tokens
       description: Retrieve request with 3-legged access tokens
-      value:
-        {}
+      value: {}
+  parameters:
+    x-correlator:
+      name: x-correlator
+      in: header
+      description: Correlation id for the different services
+      schema:
+        $ref: '#/components/schemas/XCorrelator'
+  headers:
+    x-correlator:
+      name: x-correlator
+      in: header
+      description: Correlation id for the different services
+      schema:
+        $ref: '#/components/schemas/XCorrelator'
+    x-correlator-2:
+      description: Correlation id for the different services
+      schema:
+        $ref: '#/components/schemas/XCorrelator'
