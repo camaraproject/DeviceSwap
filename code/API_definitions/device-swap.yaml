@@ -124,7 +124,7 @@ paths:
           description: Contains information about Device swap change
           headers:
             x-correlator:
-              $ref: "../common/CAMARA_common.yaml#/components/parameters/x-correlator"
+              $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
           content:
             application/json:
               schema:
@@ -178,7 +178,7 @@ paths:
           description: Returns whether a device swap has been performed during a past period
           headers:
             x-correlator:
-              $ref: "../common/CAMARA_common.yaml#/components/parameters/x-correlator"
+              $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
           content:
             application/json:
               schema:
