@@ -1,0 +1,13 @@
+repository:
+  repository_name: DeviceSwap
+  release_tag: r4.1
+  release_type: pre-release-rc
+  release_date: null
+  src_commit_sha: 2e87bc03d0c809b0d9c3091f257dcb96b1704ffd
+apis:
+- api_name: device-swap
+  api_version: 1.1.0-rc.2
+  api_title: Device Swap
+dependencies:
+  commonalities_release: r4.3 (0.8.0)
+  identity_consent_management_release: r4.2 (0.5.0)
