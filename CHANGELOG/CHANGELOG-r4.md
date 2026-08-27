@@ -47,7 +47,6 @@ The API definition(s) are based on
 * fix: use headers ref for x-correlator in response 200 headers by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/99
 
 ## New Contributors
-* @camara-release-automation[bot] made their first contribution in https://github.com/camaraproject/DeviceSwap/pull/86
 * @albertoramosmonagas made their first contribution in https://github.com/camaraproject/DeviceSwap/pull/92
 
 </details>
@@ -70,7 +69,7 @@ Changes documented below are compared to version 1.0.0.
 
 ### Added
 
-* N/A
+* Include missing scenario in test plan and fix typos by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/77
 
 ### Changed
 
@@ -78,7 +77,9 @@ Changes documented below are compared to version 1.0.0.
 
 ### Fixed
 
-* N/A
+* Fix 400 error schema to include enum by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/74
+* Update API definitions to fix CAMARA validation warnings and hint by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96
+* fix: use headers ref for x-correlator in response 200 headers by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/99
 
 ### Removed
 
