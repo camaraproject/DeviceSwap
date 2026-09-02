@@ -244,7 +244,7 @@ components:
       $ref: "../common/CAMARA_common.yaml#/components/schemas/PhoneNumber"
     CheckDeviceSwapInfo:
       type: object
-      description: Definition of the data that must be provided in the request body for check operation
+      description: Definition of the data that must be provided in the response body for check operation
       required:
         - swapped
       properties:
