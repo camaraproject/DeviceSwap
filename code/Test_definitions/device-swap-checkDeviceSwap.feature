@@ -120,54 +120,78 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
 
   # Test cases related to the device identifier
 
-  @check_device_swap_C02_01_phone_number_not_schema_compliant
+  @check_device_swap_C02.01_phone_number_not_schema_compliant
   Scenario: Phone number value does not comply with the schema
     Given the header "Authorization" is set to a valid access token which does not identify a single phone number
     And the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
-    When the HTTP "POST" request is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 400
     And the response property "$.status" is 400
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
 
-  @check_device_swap_C02_02_phone_number_not_found
+  @check_device_swap_C02.02_phone_number_not_found
   Scenario: Phone number not found
     Given the header "Authorization" is set to a valid access token which does not identify a single phone number
     And the request body property "$.phoneNumber" is compliant with the schema but does not identify a valid phone number
-    When the HTTP "POST" request is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 404
     And the response property "$.status" is 404
     And the response property "$.code" is "IDENTIFIER_NOT_FOUND"
     And the response property "$.message" contains a user friendly text
 
-  @check_device_swap_C02_03_unnecessary_phone_number
+  @check_device_swap_C02.03_unnecessary_phone_number
   Scenario: Phone number not to be included when it can be deduced from the access token
     Given the header "Authorization" is set to a valid access token identifying a phone number
     And  the request body property "$.phoneNumber" is set to a valid phone number
-    When the HTTP "POST" request is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 422
     And the response property "$.status" is 422
     And the response property "$.code" is "UNNECESSARY_IDENTIFIER"
     And the response property "$.message" contains a user friendly text
 
-  @check_device_swap_C02_04_missing_phone_number
+  @check_device_swap_C02.04_missing_phone_number
   Scenario: Phone number not included and cannot be deducted from the access token
     Given the header "Authorization" is set to a valid access token which does not identify a single phone number
     And the request body property "$.phoneNumber" is not included
-    When the HTTP "POST" request is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 422
     And the response property "$.status" is 422
     And the response property "$.code" is "MISSING_IDENTIFIER"
     And the response property "$.message" contains a user friendly text
 
-  @check_device_swap_C02_05_phone_number_not_supported
+  @check_device_swap_C02.05_phone_number_not_supported
   Scenario: Service not available for the phone number
     Given that the service is not available for all phone numbers commercialized by the operator
     And a valid phone number, identified by the token or provided in the request body, for which the service is not applicable
-    When the HTTP "POST" request is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 422
     And the response property "$.status" is 422
     And the response property "$.code" is "SERVICE_NOT_APPLICABLE"
+    And the response property "$.message" contains a user friendly text
+
+  # Generic 400 errors - Additional constraints
+
+  @check_device_swap_400.4_unknown_request_body_property
+  Scenario: Request body contains unknown properties
+    Given a valid phone number provided in the request body
+    And the request body contains an unknown property not declared in the API specification
+    When the request "checkDeviceSwap" is sent
+    Then the response status code is 400
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
+  # Generic 403 errors
+
+  @check_device_swap_403.1_insufficient_scope
+  Scenario: Authorization token has insufficient scope
+    Given the header "Authorization" is set to a valid access token without the required device-swap scope
+    And the request body is set to a valid request body
+    When the request "checkDeviceSwap" is sent
+    Then the response status code is 403
+    And the response property "$.status" is 403
+    And the response property "$.code" is "PERMISSION_DENIED"
     And the response property "$.message" contains a user friendly text
 
   # Generic 401 errors
@@ -176,8 +200,8 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
   Scenario: No Authorization header
     Given the header "Authorization" is removed
     And the request body is set to a valid request body
-    When the HTTP "POST" request is sent
-    Then the response status code is "401"
+    When the request "checkDeviceSwap" is sent
+    Then the response status code is 401
     And the response property "$.status" is 401
     And the response property "$.code" is "UNAUTHENTICATED"
     And the response property "$.message" contains a user friendly text
@@ -186,8 +210,8 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
   Scenario: Expired access token
     Given the header "Authorization" is set to an expired access token
     And the request body is set to a valid request body
-    When the HTTP "POST" request is sent
-    Then the response status code is "401"
+    When the request "checkDeviceSwap" is sent
+    Then the response status code is 401
     And the response property "$.status" is 401
     And the response property "$.code" is "UNAUTHENTICATED"
     And the response property "$.message" contains a user friendly text
@@ -196,8 +220,8 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
   Scenario: Invalid access token
     Given the header "Authorization" is set to an invalid access token
     And the request body is set to a valid request body
-    When the HTTP "POST" request is sent
-    Then the response status code is "401"
+    When the request "checkDeviceSwap" is sent
+    Then the response status code is 401
     And the response property "$.status" is 401
     And the response property "$.code" is "UNAUTHENTICATED"
     And the response property "$.message" contains a user friendly text
