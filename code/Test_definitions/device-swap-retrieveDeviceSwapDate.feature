@@ -3,7 +3,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
   # Input to be provided by the implementation to the tester
   #
   # Testing assets:
-  # * A device object which a device swap occured in the last 240 hours.
+  # * A phone number for which a device swap occured in the last 240 hours.
   #
   # References to OAS spec schemas refer to schemas specifies in device-swap.yaml.
 
@@ -14,7 +14,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
     And the request body is set by default to a request body compliant with the schema
 
-  # This first scenario serves as a minimum, not testing any specific verificationResult
+  # This first scenario serves as a minimum, testing common validations for success
   @retrieve_device_swap_date_1_generic_success_scenario
   Scenario: Common validations for any sucess scenario
     Given a valid phone number identified by the token or provided in the request body
@@ -60,7 +60,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
   Scenario: Error device swap date for a non-activated sim
     Given a valid phone number provided in the request body
     And the sim for that device has never been connected to the Operator's network
-    When the HTTP "POST" request is sent
+    When the request "retrieveDeviceSwapDate" is sent
     Then the response status code is 422
     And the response property "$.status" is 422
     And the response property "$.code" is "SERVICE_NOT_APPLICABLE"
@@ -158,7 +158,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
   Scenario: No Authorization header
     Given the header "Authorization" is removed
     And the request body is set to a valid request body
-    When the HTTP "POST" request is sent
+    When the request "retrieveDeviceSwapDate" is sent
     Then the response status code is 401
     And the response property "$.status" is 401
     And the response property "$.code" is "UNAUTHENTICATED"
@@ -168,7 +168,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
   Scenario: Expired access token
     Given the header "Authorization" is set to an expired access token
     And the request body is set to a valid request body
-    When the HTTP "POST" request is sent
+    When the request "retrieveDeviceSwapDate" is sent
     Then the response status code is 401
     And the response property "$.status" is 401
     And the response property "$.code" is "UNAUTHENTICATED"
@@ -178,7 +178,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
   Scenario: Invalid access token
     Given the header "Authorization" is set to an invalid access token
     And the request body is set to a valid request body
-    When the HTTP "POST" request is sent
+    When the request "retrieveDeviceSwapDate" is sent
     Then the response status code is 401
     And the response property "$.status" is 401
     And the response property "$.code" is "UNAUTHENTICATED"

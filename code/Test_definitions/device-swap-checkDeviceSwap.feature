@@ -3,7 +3,7 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
   # Input to be provided by the implementation to the tester
   #
   # Testing assets:
-  # * A device object which a device swap occurred in the last 240 hours.
+  # * A phone number for which a device swap occurred in the last 240 hours.
   # * for additional testing another device without device swapping last 240 hours.
   # References to OAS spec schemas refer to schemas specifies in device-swap.yaml
 
@@ -14,7 +14,7 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
     And the request body is set by default to a request body compliant with the schema
 
-  # This first scenario serves as a minimum, not testing any specific verificationResult
+  # This first scenario serves as a minimum, testing common validations for success
   @check_device_swap_1_generic_success_scenario
   Scenario: Common validations for any success scenario
     Given a valid phone number identified by the token or provided in the request body
@@ -112,7 +112,7 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
   Scenario: Error when the phone number has never connected to the Operators's network so the device has never been activated
     Given a valid phone number provided in the request body
     And the sim for that device has never been connected to the Operator's network
-    When the HTTP "POST" request is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 422
     And the response property "$.status" is 422
     And the response property "$.code" is "SERVICE_NOT_APPLICABLE"
@@ -231,7 +231,7 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
   @check_device_swap_400.1_invalid_max_age
   Scenario: Check that the response shows an error when the max age is invalid
     Given the request body property "$.maxAge" does not comply with the OAS schema at "/components/schemas/CreateCheckDeviceSwap"
-    When the HTTP "POST" request is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 400
     And the response property "$.status" is 400
     And the response property "$.code" is "INVALID_ARGUMENT"
@@ -240,7 +240,7 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
   @check_device_swap_400.2_out_of_range
   Scenario: Error when maxAge is out of range
     Given the request body property "$.maxAge" is set to a value greater than the allowed range
-    When the HTTP "POST" request is sent
+    When the request "checkDeviceSwap" is sent
     Then the response status code is 400
     And the response property "$.status" is 400
     And the response property "$.code" is "OUT_OF_RANGE"
