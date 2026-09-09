@@ -3,7 +3,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
   # Input to be provided by the implementation to the tester
   #
   # Testing assets:
-  # * A phone number for which a device swap occured in the last 240 hours.
+  # * A phone number for which a device swap occurred in the last 240 hours.
   #
   # References to OAS spec schemas refer to schemas specifies in device-swap.yaml.
 
