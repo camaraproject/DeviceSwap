@@ -5,7 +5,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
   # Testing assets:
   # * A phone number for which a device swap occurred in the last 240 hours.
   #
-  # References to OAS spec schemas refer to schemas specifies in device-swap.yaml.
+  # References to OAS spec schemas refer to schemas specified in device-swap.yaml.
 
   Background: Common retrieveDeviceSwapDate setup
     Given the resource "device-swap/vwip/retrieve-date"
@@ -16,7 +16,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
 
   # This first scenario serves as a minimum, testing common validations for success
   @retrieve_device_swap_date_1_generic_success_scenario
-  Scenario: Common validations for any sucess scenario
+  Scenario: Common validations for any success scenario
     Given a valid phone number identified by the token or provided in the request body
     When the request "retrieveDeviceSwapDate" is sent
     Then the response status code is 200

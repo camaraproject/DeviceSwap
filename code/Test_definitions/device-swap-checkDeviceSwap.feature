@@ -5,7 +5,7 @@ Feature: CAMARA Device Swap API, vwip - Operation checkDeviceSwap
   # Testing assets:
   # * A phone number for which a device swap occurred in the last 240 hours.
   # * for additional testing another device without device swapping last 240 hours.
-  # References to OAS spec schemas refer to schemas specifies in device-swap.yaml
+  # References to OAS spec schemas refer to schemas specified in device-swap.yaml
 
   Background: Common checkDeviceSwap setup
     Given the resource "device-swap/vwip/check"
