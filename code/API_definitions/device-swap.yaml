@@ -215,7 +215,7 @@ components:
           example: "2023-07-03T14:27:08.312+02:00"
         monitoredPeriod:
           type: integer
-          description: Timeframe in days for device change supervision for the phone number. It could be valued in the response if the latest Device swap occurred before this monitored period.
+          description: Timeframe in days for device change supervision for the phone number. Optional. Included in the response to indicate the monitored time frame (in days) supported by the Network Operator. When present, it indicates that no device swap events were detected during this monitored period.
           format: int32
           minimum: 1
           maximum: 999
@@ -368,8 +368,8 @@ components:
                 message: The device is already identified by the access token.
   examples:
     RETRIEVE_DATE:
-      summary: Lastest Device swap date is send back
-      description: Lastest device swap date is send back
+      summary: Lastest Device swap date is sent back
+      description: Lastest device swap date is sent back
       value:
         latestDeviceChange: 2024-09-18T07:37:53.471829447Z
     RETRIEVE_MONITORED_NULL:
@@ -378,7 +378,7 @@ components:
       value:
         latestDeviceChange: null
     RETRIEVE_MONITORED_PERIOD:
-      summary: null is send back for the date but a monitoredPeriod is provided
+      summary: null is sent back for the date but a monitoredPeriod is provided
       description: As latest device swap date is too long ago, null value is sent back with a monitored period
       value:
         latestDeviceChange: null
