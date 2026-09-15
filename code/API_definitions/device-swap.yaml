@@ -363,7 +363,7 @@ components:
       value:
         latestDeviceChange: null
     RETRIEVE_MONITORED_PERIOD:
-      summary: null is send back for the date but a monitoredPeriod is provided
+      summary: null is sent back for the date but a monitoredPeriod is provided
       description: As latest device swap date is too long ago, null value is sent back with a monitored period
       value:
         latestDeviceChange: null
