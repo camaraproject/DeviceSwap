@@ -353,8 +353,8 @@ components:
                 message: The device is already identified by the access token.
   examples:
     RETRIEVE_DATE:
-      summary: Lastest Device swap date is send back
-      description: Lastest device swap date is send back
+      summary: Latest Device swap date is send back
+      description: Latest device swap date is send back
       value:
         latestDeviceChange: 2024-09-18T07:37:53.471829447Z
     RETRIEVE_MONITORED_NULL:
