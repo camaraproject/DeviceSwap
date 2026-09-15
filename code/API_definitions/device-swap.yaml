@@ -139,7 +139,7 @@ paths:
                 RETRIEVE_MONITORED_NULL:
                   $ref: "#/components/examples/RETRIEVE_MONITORED_NULL"
         "400":
-          $ref: "#/components/responses/Generic400"
+          $ref: "#/components/responses/BadRequest400"
         "401":
           $ref: "../common/CAMARA_common.yaml#/components/responses/Generic401"
         "403":
@@ -186,7 +186,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/CheckDeviceSwapInfo"
         "400":
-          $ref: "#/components/responses/Generic400"
+          $ref: "#/components/responses/BadRequestWithRange400"
         "401":
           $ref: "../common/CAMARA_common.yaml#/components/responses/Generic401"
         "403":
@@ -244,7 +244,7 @@ components:
       $ref: "../common/CAMARA_common.yaml#/components/schemas/PhoneNumber"
     CheckDeviceSwapInfo:
       type: object
-      description: Definition of the response data for check operation
+      description: Definition of the data that can be returned in the response body for check operation
       required:
         - swapped
       properties:
@@ -277,7 +277,7 @@ components:
                 status: 403
                 code: PERMISSION_DENIED
                 message: Client does not have sufficient permissions to perform this action.
-    Generic400:
+    BadRequest400:
       description: Bad Request
       headers:
         x-correlator:
@@ -302,6 +302,25 @@ components:
                 status: 400
                 code: INVALID_ARGUMENT
                 message: The request body contains invalid or unknown properties.
+    BadRequestWithRange400:
+      description: Bad Request
+      headers:
+        x-correlator:
+          $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 400
+                  code:
+                    enum:
+                      - INVALID_ARGUMENT
+                      - OUT_OF_RANGE
     Generic404:
       description: Not Found
       headers:
@@ -368,8 +387,8 @@ components:
                 message: The device is already identified by the access token.
   examples:
     RETRIEVE_DATE:
-      summary: Lastest Device swap date is sent back
-      description: Lastest device swap date is sent back
+      summary: Latest Device swap date is sent back
+      description: Latest device swap date is sent back
       value:
         latestDeviceChange: 2024-09-18T07:37:53.471829447Z
     RETRIEVE_MONITORED_NULL:
