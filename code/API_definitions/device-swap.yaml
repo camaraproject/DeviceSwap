@@ -295,6 +295,13 @@ components:
                   code:
                     enum:
                       - INVALID_ARGUMENT
+          examples:
+          GENERIC_400_INVALID_ARGUMENT:
+              description: Invalid argument provided. This includes request body schema violations and unknown properties (request-body-strictness).
+              value:
+                status: 400
+                code: INVALID_ARGUMENT
+                message: The request body contains invalid or unknown properties.
     BadRequestWithRange400:
       description: Bad Request
       headers:
@@ -314,6 +321,31 @@ components:
                     enum:
                       - INVALID_ARGUMENT
                       - OUT_OF_RANGE
+    Generic404:
+      description: Not Found
+      headers:
+        x-correlator:
+          $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 404
+                  code:
+                    enum:
+                      - IDENTIFIER_NOT_FOUND
+          examples:
+            GENERIC_404_IDENTIFIER_NOT_FOUND:
+              description: Identifier not found. The specified phone number does not exist or is not accessible.
+              value:
+                status: 404
+                code: IDENTIFIER_NOT_FOUND
+                message: The specified phone number was not found.
     Generic422:
       description: Unprocessable Content
       headers:
