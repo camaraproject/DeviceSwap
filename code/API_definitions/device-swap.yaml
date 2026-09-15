@@ -296,7 +296,7 @@ components:
                     enum:
                       - INVALID_ARGUMENT
           examples:
-          GENERIC_400_INVALID_ARGUMENT:
+            GENERIC_400_INVALID_ARGUMENT:
               description: Invalid argument provided. This includes request body schema violations and unknown properties (request-body-strictness).
               value:
                 status: 400
