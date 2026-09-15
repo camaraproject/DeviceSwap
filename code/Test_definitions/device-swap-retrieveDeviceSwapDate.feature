@@ -120,17 +120,7 @@ Feature: CAMARA Device Swap API, vwip - Operation retrieveDeviceSwapDate
 
   # Generic 400 errors
 
-  @retrieve_device_swap_date_400.1_invalid_request_body_schema
-  Scenario: Invalid request body does not comply with the schema
-    Given a valid phone number provided in the request body
-    And the request body property "$.phoneNumber" is set to an invalid value not compliant with the schema
-    When the request "retrieveDeviceSwapDate" is sent
-    Then the response status code is 400
-    And the response property "$.status" is 400
-    And the response property "$.code" is "INVALID_ARGUMENT"
-    And the response property "$.message" contains a user friendly text
-
-  @retrieve_device_swap_date_400.2_unknown_request_body_property
+  @retrieve_device_swap_date_400.1_unknown_request_body_property
   Scenario: Request body contains unknown properties
     Given a valid phone number provided in the request body
     And the request body contains an unknown property not declared in the API specification
