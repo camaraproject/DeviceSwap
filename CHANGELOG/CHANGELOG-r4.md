@@ -72,15 +72,18 @@ Changes documented below are compared to version 1.0.0.
 
 ### Added
 
-* N/A
+* Include missing scenario in test plan and fix typos by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/77
 
 ### Changed
 
-* N/A
+* Aligned error response schemas and mandatory `info.description` sections with Commonalities 0.8.0 (from 0.6): narrowed `403`/`422` error codes, added `maxLength`/`format` constraints to `ErrorInfo` and response schemas, and added the `additional-error-responses` and `request-body-strictness` mandatory templates by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96
 
 ### Fixed
 
-* N/A
+* Fix 400 error schema to include enum by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/74
+* Update API definitions to fix CAMARA validation warnings and hint by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96
+* fix: use headers ref for x-correlator in response 200 headers by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/99
+* Corrected specification templates, schema descriptions, and test definition alignment with Commonalities r4.3 standards (Issues #104, #105, #106, #107)
 
 ### Removed
 
