@@ -72,7 +72,7 @@ Changes documented below are compared to version 1.0.0.
 
 ### Added
 
-* Include missing scenario in test plan and fix typos by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/77
+* N/A
 
 ### Changed
 
@@ -88,6 +88,7 @@ Changes documented below are compared to version 1.0.0.
 * fix: use headers ref for x-correlator in response 200 headers by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/99
 * Corrected specification templates, schema descriptions, and test definition alignment with Commonalities r4.3 standards (Issues #104, #105, #106, #107) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/108
 * Corrected example and schema description wording (Issues #109, #110) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/111
+* Include missing scenario in test plan and fix typos by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/77
 
 ### Removed
 
