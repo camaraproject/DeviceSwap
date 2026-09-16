@@ -76,7 +76,10 @@ Changes documented below are compared to version 1.0.0.
 
 ### Changed
 
-* Aligned error response schemas and mandatory `info.description` sections with Commonalities 0.8.0 (from 0.6): narrowed `403`/`422` error codes, added `maxLength`/`format` constraints to `ErrorInfo` and response schemas, and added the `additional-error-responses` and `request-body-strictness` mandatory templates by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96
+* Aligned error response schemas and mandatory `info.description` sections with Commonalities 0.8.0 (from 0.6) by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96
+  * added `maxLength`/`format` constraints to `ErrorInfo` and response schemas
+  * added the `additional-error-responses` and `request-body-strictness` mandatory templates
+* Narrowed the documented `404` error codes to `IDENTIFIER_NOT_FOUND`, removing `NOT_FOUND`, which neither operation can return (Issue #106) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/108
 
 ### Fixed
 
