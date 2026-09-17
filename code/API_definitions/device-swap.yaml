@@ -194,7 +194,7 @@ paths:
         "404":
           $ref: "../common/CAMARA_common.yaml#/components/responses/IdentifierNotFound404"
         "422":
-          $ref: "../common/CAMARA_common.yaml#/components/responses/BadRequestWithRangeIdentifier422"
+          $ref: "../common/CAMARA_common.yaml#/components/responses/PhoneNumberIdentifier422"
 components:
   securitySchemes:
     openId:
