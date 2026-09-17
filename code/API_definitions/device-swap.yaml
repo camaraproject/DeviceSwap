@@ -252,50 +252,6 @@ components:
           type: boolean
           description: Indicates whether the device has been swapped during the period within the provided age.
   responses:
-    BadRequest400:
-      description: Bad Request
-      headers:
-        x-correlator:
-          $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
-              - type: object
-                properties:
-                  status:
-                    enum:
-                      - 400
-                  code:
-                    enum:
-                      - INVALID_ARGUMENT
-          examples:
-            GENERIC_400_INVALID_ARGUMENT:
-              description: Invalid argument provided. This includes request body schema violations and unknown properties (request-body-strictness).
-              value:
-                status: 400
-                code: INVALID_ARGUMENT
-                message: The request body contains invalid or unknown properties.
-    BadRequestWithRange400:
-      description: Bad Request
-      headers:
-        x-correlator:
-          $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
-              - type: object
-                properties:
-                  status:
-                    enum:
-                      - 400
-                  code:
-                    enum:
-                      - INVALID_ARGUMENT
-                      - OUT_OF_RANGE
   examples:
     RETRIEVE_DATE:
       summary: Latest Device swap date is sent back
