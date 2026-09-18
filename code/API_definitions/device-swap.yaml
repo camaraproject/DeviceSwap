@@ -76,7 +76,7 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: wip
-  x-camara-commonalities: 0.6
+  x-camara-commonalities: 0.9.0
 
 externalDocs:
   description: Product documentation at CAMARA
@@ -139,7 +139,7 @@ paths:
                 RETRIEVE_MONITORED_NULL:
                   $ref: "#/components/examples/RETRIEVE_MONITORED_NULL"
         "400":
-          $ref: "../common/CAMARA_common.yaml#/components/responses/BadRequestWithRange400"
+          $ref: "../common/CAMARA_common.yaml#/components/responses/BadRequest400"
         "401":
           $ref: "../common/CAMARA_common.yaml#/components/responses/Unauthenticated401"
         "403":
@@ -251,7 +251,6 @@ components:
         swapped:
           type: boolean
           description: Indicates whether the device has been swapped during the period within the provided age.
-  responses:
   examples:
     RETRIEVE_DATE:
       summary: Latest Device swap date is sent back
