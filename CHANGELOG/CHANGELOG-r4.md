@@ -66,7 +66,7 @@ Changes documented below are compared to version 1.1.0-rc.2.
 
 ### Changed
 
-* N/A
+* Align commonalities r4.4 to Device Swap by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/119
 
 ### Fixed
 
