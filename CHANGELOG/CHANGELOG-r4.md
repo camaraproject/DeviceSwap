@@ -66,7 +66,10 @@ Changes documented below are compared to version 1.1.0-rc.2.
 
 ### Changed
 
-* Align commonalities r4.4 to Device Swap by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/119
+* Aligned with Commonalities r4.4 (0.9.0) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/119 and @hdamker in https://github.com/camaraproject/DeviceSwap/pull/122
+  * error responses now use the Commonalities r4.4 response definitions (`Unauthenticated401`, `PermissionDenied403`, `IdentifierNotFound404`, `PhoneNumberIdentifier422`); documented status codes and error codes are unchanged
+  * error examples updated to the Commonalities r4.4 texts, e.g. `MISSING_IDENTIFIER` and `UNNECESSARY_IDENTIFIER` now refer to the phone number; the `/check` 400 response now includes `INVALID_ARGUMENT` and `OUT_OF_RANGE` examples
+  * `additional-error-responses` template in `info.description` and `x-camara-commonalities` (`0.9.0`) updated
 
 ### Fixed
 
