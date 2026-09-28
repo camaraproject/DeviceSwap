@@ -73,7 +73,7 @@ Changes documented below are compared to version 1.1.0-rc.2.
 
 ### Fixed
 
-* fix(device-swap): correct /retrieve-date 400 and stale metadata by @hdamker in https://github.com/camaraproject/DeviceSwap/pull/122
+* N/A
 
 ### Removed
 
