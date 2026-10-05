@@ -40,9 +40,9 @@ Incubating API Repository to evolve and maintain the definitions and documentati
 
 ### Upcoming Release Preview
 
-* Pre-release: [r4.1](https://github.com/camaraproject/DeviceSwap/releases/tag/r4.1) (release candidate)
-  * **device-swap 1.1.0-rc.2**
-  [[YAML]](https://github.com/camaraproject/DeviceSwap/blob/r4.1/code/API_definitions/device-swap.yaml)  [[ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r4.1/code/API_definitions/device-swap.yaml&nocors)  [[Swagger]](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r4.1/code/API_definitions/device-swap.yaml)
+* Pre-release: [r4.2](https://github.com/camaraproject/DeviceSwap/releases/tag/r4.2) (release candidate)
+  * **device-swap 1.1.0-rc.3**
+  [[YAML]](https://github.com/camaraproject/DeviceSwap/blob/r4.2/code/API_definitions/device-swap.yaml)  [[ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r4.2/code/API_definitions/device-swap.yaml&nocors)  [[Swagger]](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r4.2/code/API_definitions/device-swap.yaml)
 
 
 _The above section is automatically synchronized by CAMARA project-administration._
