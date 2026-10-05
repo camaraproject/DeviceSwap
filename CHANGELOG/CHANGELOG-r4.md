@@ -2,6 +2,7 @@
 
 <!-- TOC:START -->
 ## Table of Contents
+- [r4.2](#r42)
 - [r4.1](#r41)
 <!-- TOC:END -->
 
@@ -13,6 +14,53 @@ The below sections record the changes for each API version in each release as fo
 * for the first release-candidate, all changes since the last public release
 * for subsequent release-candidate(s), only the delta to the previous release-candidate
 * for a public release, the consolidated changes since the previous public release
+
+# r4.2
+
+## Release Notes
+
+This release candidate contains the definition and documentation of
+* device-swap 1.1.0-rc.3
+
+The API definition(s) are based on
+* Commonalities r4.4 (0.9.0)
+* Identity and Consent Management r4.2 (0.5.0)
+
+## device-swap 1.1.0-rc.3
+
+**device-swap 1.1.0-rc.3 is a release-candidate version of this API.**
+
+Changes documented below are compared to version 1.1.0-rc.2.
+
+- API definition **with inline documentation**:
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r4.2/code/API_definitions/device-swap.yaml&nocors)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r4.2/code/API_definitions/device-swap.yaml)
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r4.2/code/API_definitions/device-swap.yaml)
+
+### Breaking changes
+
+* N/A
+
+### Added
+
+* N/A
+
+### Changed
+
+* Aligned with Commonalities r4.4 (0.9.0) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/119 and @hdamker in https://github.com/camaraproject/DeviceSwap/pull/122
+  * error responses now use the Commonalities r4.4 response definitions (`Unauthenticated401`, `PermissionDenied403`, `IdentifierNotFound404`, `PhoneNumberIdentifier422`); documented status codes and error codes are unchanged
+  * error examples updated to the Commonalities r4.4 texts, e.g. `MISSING_IDENTIFIER` and `UNNECESSARY_IDENTIFIER` now refer to the phone number; the `/check` 400 response now includes `INVALID_ARGUMENT` and `OUT_OF_RANGE` examples
+  * `additional-error-responses` template in `info.description` and `x-camara-commonalities` (`0.9.0`) updated
+
+### Fixed
+
+* N/A
+
+### Removed
+
+* N/A
+
+**Full Changelog**: https://github.com/camaraproject/DeviceSwap/compare/r4.1...r4.2
 
 # r4.1
 
