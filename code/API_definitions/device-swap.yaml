@@ -83,7 +83,7 @@ externalDocs:
   url: https://github.com/camaraproject/DeviceSwap
 
 servers:
-  - url: '{apiRoot}/device-swap/v1.1.0'
+  - url: '{apiRoot}/device-swap/v1.1'
     variables:
       apiRoot:
         default: http://localhost:9091
