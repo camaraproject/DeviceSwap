@@ -8,7 +8,7 @@ Feature: CAMARA Device Swap API, v1.1.0 - Operation retrieveDeviceSwapDate
   # References to OAS spec schemas refer to schemas specified in device-swap.yaml.
 
   Background: Common retrieveDeviceSwapDate setup
-    Given the resource "device-swap/v1.1/retrieve-date"
+    Given the resource "device-swap/v1/retrieve-date"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"

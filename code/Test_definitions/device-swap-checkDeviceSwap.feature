@@ -8,7 +8,7 @@ Feature: CAMARA Device Swap API, v1.1.0 - Operation checkDeviceSwap
   # References to OAS spec schemas refer to schemas specified in device-swap.yaml
 
   Background: Common checkDeviceSwap setup
-    Given the resource "device-swap/v1.1/check"
+    Given the resource "device-swap/v1/check"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
