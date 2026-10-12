@@ -91,7 +91,12 @@ Changes documented below are compared to version 1.0.0.
 
 ### Fixed
 
-* N/A
+* Fix 400 error schema to include enum by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/74
+* Include missing scenario in test plan and fix typos by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/77
+* Update API definitions to fix CAMARA validation warnings and hint by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96
+* fix: use headers ref for x-correlator in response 200 headers by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/99
+* Corrected specification templates, schema descriptions, and test definition alignment with Commonalities r4.3 standards (Issues #104, #105, #106, #107) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/108
+* Corrected example and schema description wording (Issues #109, #110) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/111
 
 ### Removed
 
