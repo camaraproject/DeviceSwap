@@ -82,7 +82,12 @@ Changes documented below are compared to version 1.0.0.
 
 ### Changed
 
-* N/A
+* Aligned with Commonalities r4.4 (0.9.0, from 0.6) by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96, @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/119 and @hdamker in https://github.com/camaraproject/DeviceSwap/pull/122
+  * error responses now use the Commonalities r4.4 response definitions (`Unauthenticated401`, `PermissionDenied403`, `IdentifierNotFound404`, `PhoneNumberIdentifier422`)
+  * error examples updated to the Commonalities r4.4 texts, e.g. `MISSING_IDENTIFIER` and `UNNECESSARY_IDENTIFIER` now refer to the phone number
+  * added `maxLength`/`format` constraints to `ErrorInfo` and response schemas
+  * added the `additional-error-responses` and `request-body-strictness` mandatory templates to `info.description`; `x-camara-commonalities` set to `0.9.0`
+* Narrowed the documented `404` error codes to `IDENTIFIER_NOT_FOUND`, removing `NOT_FOUND`, which neither operation can return (Issue #106) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/108
 
 ### Fixed
 
