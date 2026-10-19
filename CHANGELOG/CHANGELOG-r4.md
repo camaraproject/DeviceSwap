@@ -2,6 +2,7 @@
 
 <!-- TOC:START -->
 ## Table of Contents
+- **[r4.3](#r43)**
 - [r4.2](#r42)
 - [r4.1](#r41)
 <!-- TOC:END -->
@@ -14,6 +15,60 @@ The below sections record the changes for each API version in each release as fo
 * for the first release-candidate, all changes since the last public release
 * for subsequent release-candidate(s), only the delta to the previous release-candidate
 * for a public release, the consolidated changes since the previous public release
+
+# r4.3
+
+## Release Notes
+
+This public release contains the definition and documentation of
+* device-swap 1.1.0
+
+The API definition(s) are based on
+* Commonalities r4.4 (0.9.0)
+* Identity and Consent Management r4.2 (0.5.0)
+
+## device-swap 1.1.0
+
+**device-swap 1.1.0 is a minor update of this API.**
+
+Changes documented below are compared to version 1.0.0.
+
+- API definition **with inline documentation**:
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r4.3/code/API_definitions/device-swap.yaml&nocors)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/DeviceSwap/r4.3/code/API_definitions/device-swap.yaml)
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/DeviceSwap/blob/r4.3/code/API_definitions/device-swap.yaml)
+
+### Breaking changes
+
+* N/A
+
+### Added
+
+* N/A
+
+### Changed
+
+* Aligned with Commonalities r4.4 (0.9.0, from 0.6) by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96, @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/119 and @hdamker in https://github.com/camaraproject/DeviceSwap/pull/122
+  * error responses now use the Commonalities r4.4 response definitions (`Unauthenticated401`, `PermissionDenied403`, `IdentifierNotFound404`, `PhoneNumberIdentifier422`)
+  * error examples updated to the Commonalities r4.4 texts, e.g. `MISSING_IDENTIFIER` and `UNNECESSARY_IDENTIFIER` now refer to the phone number
+  * added `maxLength`/`format` constraints to `ErrorInfo` and response schemas
+  * added the `additional-error-responses` and `request-body-strictness` mandatory templates to `info.description`; `x-camara-commonalities` set to `0.9.0`
+* Narrowed the documented `404` error codes to `IDENTIFIER_NOT_FOUND`, removing `NOT_FOUND`, which neither operation can return (Issue #106) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/108
+
+### Fixed
+
+* Fix 400 error schema to include enum by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/74
+* Include missing scenario in test plan and fix typos by @fernandopradocabrillo in https://github.com/camaraproject/DeviceSwap/pull/77
+* Update API definitions to fix CAMARA validation warnings and hint by @bigludo7 in https://github.com/camaraproject/DeviceSwap/pull/96
+* fix: use headers ref for x-correlator in response 200 headers by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/99
+* Corrected specification templates, schema descriptions, and test definition alignment with Commonalities r4.3 standards (Issues #104, #105, #106, #107) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/108
+* Corrected example and schema description wording (Issues #109, #110) by @albertoramosmonagas in https://github.com/camaraproject/DeviceSwap/pull/111
+
+### Removed
+
+* N/A
+
+**Full Changelog**: https://github.com/camaraproject/DeviceSwap/compare/r3.2...r4.3
 
 # r4.2
 
