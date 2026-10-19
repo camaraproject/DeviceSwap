@@ -2,7 +2,7 @@ repository:
   repository_name: DeviceSwap
   release_tag: r4.3
   release_type: public-release
-  release_date: null
+  release_date: '2026-10-19T12:34:40Z'
   src_commit_sha: 154ead56c72923108b97675c55261a04d5fb1c36
 apis:
 - api_name: device-swap
